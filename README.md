@@ -24,3 +24,6 @@ Welcome to "Where's Sky?",  game that challenges players to find Sky, a cleverly
 
 ## Support
 For any assistance or to report bugs, please contact our support team at "alinush0zahozi@gmail.com"
+
+## The official components of the game:
+Link : https://github.com/Computer-game-development-course/Where-s-Sky-/wiki
