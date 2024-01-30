@@ -1,10 +1,8 @@
 # Where's Sky?
 
-**Did you manage to find it?**
+![image](https://github.com/Computer-game-development-course/Where-s-Sky-/assets/93255163/ce000610-9c06-4460-9255-a1d277916052)
 
-![image](https://github.com/Computer-game-development-course/Where-s-Sky-/assets/93255163/6afa5d26-89dc-46e0-9e50-2a1e2e787290)
-
-**This image is for illustration only and was created with Chat GPT
+* [Click here to play on itch.io](https://alinaandyuval.itch.io/whereissky)
 
 ## Overview
 Welcome to "Where's Sky?",  game that challenges players to find Sky, a cleverly hidden pet in a beautifully designed in-game home.
@@ -16,14 +14,8 @@ Welcome to "Where's Sky?",  game that challenges players to find Sky, a cleverly
 - **Engaging Storyline**: Follow a captivating storyline that unfolds as you move through the levels, revealing more about Sky's personality and the home's backstory.
 - **Suitable for All Ages**: Designed to be family-friendly, offering fun for players of all ages.
 
-## System Requirements
---to be specified later--
-
-## Installation Instructions
---to be specified later--
-
 ## Support
 For any assistance or to report bugs, please contact our support team at "alinush0zahozi@gmail.com"
 
-## The official components of the game:
-Link : https://github.com/Computer-game-development-course/Where-s-Sky-/wiki
+## The official components of the game
+[Click here to go to the wiki page](https://github.com/Computer-game-development-course/Where-s-Sky-/wiki)
