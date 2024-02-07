@@ -37,6 +37,8 @@ The main character in the game is the cat that the player must find. The seconda
 During the game, the longer it takes the player to find the cat, the higher the stress levels.
 The dramatic arc of the plot in our game will look like this:
 
+![image](https://github.com/Computer-game-development-course/Where-s-Sky-/assets/93255163/70d4759d-213a-43d1-969c-a0b3fa25bdcf)
+
 ## Building the world
 
 The world of the game is the residence of the woman whose cat was lost.
