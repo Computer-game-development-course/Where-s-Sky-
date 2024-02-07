@@ -2,11 +2,16 @@
 
 ## Challenge
 
-The levels of difficulty increase gradually as you progress through the stages. At each stage the level of difficulty increases by placing the cat in more creative hiding places in combination with reducing the time given to the player to find the cat so that as the player advances to higher levels, the level of difficulty increases and the game becomes more challenging. Another challenge is the player hitting objects in the house - in the house there are 2 types of objects - static or dynamic. The cat always hides behind dynamic objects that the player can break by clicking or by throwing a ball of wool, but if the player breaks a dynamic object that the cat was not behind then his time will decrease. If the player hit a number of different objects with the wool ball then his time decreased according to the amount of objects if the cat was not behind any of them, but if the cat was behind at least one of the broken objects then the time did not decrease at all.
+The levels of difficulty increase gradually as you progress through the stages.
+At each stage the level of difficulty increases by placing the cat in more creative hiding places in combination with reducing the time given to the player to find the cat so that as the player advances to higher levels, the level of difficulty increases and the game becomes more challenging.
+Another challenge is the player hitting objects in the house - in the house there are 2 types of objects - static or dynamic.
+The cat always hides behind dynamic objects that the player can break by clicking or by throwing a ball of wool, but if the player breaks a dynamic object that the cat was not behind then his time will decrease.
+If the player hit a number of different objects with the wool ball then his time decreased according to the amount of objects if the cat was not behind any of them, but if the cat was behind at least one of the broken objects then the time did not decrease at all.
 
 ## Flow
 
-With the progress of the levels and the challenge of finding the cat in a shorter time, the player will accumulate money by finding the cat, so the faster he finds the cat, the more money he will earn. Also, the player will be able to purchase add-ons or find them during the game. The plugins will be added randomly according to their price - a cheap plugin will appear more and an expensive plugin will rarely appear. This will increase the interest in the game and the player's feeling that he has control. Also, due to the time limit for finding the cat, the player must concentrate his maximum attention on the game and avoid distractions.
+With the progress of the levels and the challenge of finding the cat in a shorter time, the player will accumulate money by finding the cat, so the faster he finds the cat, the more money he will earn.
+Also, the player will be able to purchase add-ons or find them during the game. The plugins will be added randomly according to their price - a cheap plugin will appear more and an expensive plugin will rarely appear. This will increase the interest in the game and the player's feeling that he has control. Also, due to the time limit for finding the cat, the player must concentrate his maximum attention on the game and avoid distractions.
 He can use the money to buy the following add-ons:
 
 - **Hourglass -** gives another 5 seconds to the game.
@@ -16,7 +21,8 @@ He can use the money to buy the following add-ons:
 
 ## Entertainment
 
-In addition to the main game, we will allow the player to play a side game similar to the structure of pacman, where the player will be the cat and he will have to collect as many coins as possible and not be eaten by the dog. The player will only be able to play the game every 6 hours and therefore will not lose interest because it will be easy for him to buy the add-ons, but he will also not be frustrated by the difficulty of earning money.
+In addition to the main game, we will allow the player to play a side game similar to the structure of pacman, where the player will be the cat and he will have to collect as many coins as possible and not be eaten by the dog.
+The player will only be able to play the game every 6 hours and therefore will not lose interest because it will be easy for him to buy the add-ons, but he will also not be frustrated by the difficulty of earning money.
 The game will suit collectors, achievers and clowns. The collector will want to collect as much money and extras as possible, the achiever will want to advance to the higher levels, and the clown will enjoy breaking the objects in the house.
 We will be able to add more rooms to the game with each progress in the stages, thus making the game interesting and relevant even for the work of players of the "explorer" type.
 
