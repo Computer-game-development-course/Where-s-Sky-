@@ -11,7 +11,10 @@ If the player hit a number of different objects with the wool ball then his time
 ## Flow
 
 With the progress of the levels and the challenge of finding the cat in a shorter time, the player will accumulate money by finding the cat, so the faster he finds the cat, the more money he will earn.
-Also, the player will be able to purchase add-ons or find them during the game. The plugins will be added randomly according to their price - a cheap plugin will appear more and an expensive plugin will rarely appear. This will increase the interest in the game and the player's feeling that he has control. Also, due to the time limit for finding the cat, the player must concentrate his maximum attention on the game and avoid distractions.
+Also, the player will be able to purchase add-ons or find them during the game. 
+The plugins will be added randomly according to their price - a cheap plugin will appear more and an expensive plugin will rarely appear.
+This will increase the interest in the game and the player's feeling that he has control.
+Also, due to the time limit for finding the cat, the player must concentrate his maximum attention on the game and avoid distractions.
 He can use the money to buy the following add-ons:
 
 - **Hourglass -** gives another 5 seconds to the game.
@@ -36,7 +39,9 @@ The game script is a woman who is late for work and her cat is lost and the play
 
 ## Characters
 
-The main character in the game is the cat that the player must find. The secondary character is the owner of the cat who appears at the beginning and explains that the cat is lost and she is late for work. Also, in the pacman-like side game, the cat has to collect as many coins as possible. An image of a dog will appear to chase the cat.
+The main character in the game is the cat that the player must find. 
+The secondary character is the owner of the cat who appears at the beginning and explains that the cat is lost and she is late for work. Also, in the pacman-like side game, the cat has to collect as many coins as possible.
+An image of a dog will appear to chase the cat.
 
 ## Plot
 
