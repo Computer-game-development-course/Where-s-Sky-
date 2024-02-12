@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,7 +121,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: bath1_0
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 1532
+        width: 1149
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b624a84ed2004be3aa614ec9457eada
+      internalID: -1437245083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bath1_1
+      rect:
+        serializedVersion: 2
+        x: 1449
+        y: 1347
+        width: 1061
+        height: 1017
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1e88add25d024633b3b5dc2d7544cd8
+      internalID: 724127596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bath1_2
+      rect:
+        serializedVersion: 2
+        x: 2798
+        y: 1660
+        width: 1232
+        height: 456
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dcaf642ffa714530b86e06e3f021bf8
+      internalID: -1378772834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bath1_3
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 56
+        width: 976
+        height: 1375
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea54052f1772c4f1387f2364cac020f3
+      internalID: 2987700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bath1_4
+      rect:
+        serializedVersion: 2
+        x: 2088
+        y: 57
+        width: 503
+        height: 696
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d18533eb987247129c8c0da37956bbc
+      internalID: 1799805450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bath1_5
+      rect:
+        serializedVersion: 2
+        x: 2853
+        y: 57
+        width: 1111
+        height: 1309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd7801200545f4edd86acc57a79f8f55
+      internalID: 445281154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +258,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bath1_0: -1437245083
+      bath1_1: 724127596
+      bath1_2: -1378772834
+      bath1_3: 2987700
+      bath1_4: 1799805450
+      bath1_5: 445281154
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,7 +121,154 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: item1_0
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 1335
+        width: 339
+        height: 1339
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08a8349738a514bba9a663331fbfb3e0
+      internalID: 1736796520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item1_1
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 1636
+        width: 1266
+        height: 1147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56ec05fc3a8b54bc3a9f9f6e07a8ccaf
+      internalID: -835698539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item1_2
+      rect:
+        serializedVersion: 2
+        x: 1843
+        y: 1852
+        width: 621
+        height: 690
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ecc2cc0b0bf34cf5b7635edde831b80
+      internalID: 1328253511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item1_3
+      rect:
+        serializedVersion: 2
+        x: 2610
+        y: 1395
+        width: 835
+        height: 1340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d20c851f0159549cba3ae15693fc0359
+      internalID: 536158575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item1_4
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 38
+        width: 2012
+        height: 1347
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfcfb25f1126c45a994176479b59baeb
+      internalID: -845732540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item1_5
+      rect:
+        serializedVersion: 2
+        x: 1397
+        y: 1077
+        width: 903
+        height: 561
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29f9c84df73df44378ffd112ee0594a6
+      internalID: -1948905488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item1_6
+      rect:
+        serializedVersion: 2
+        x: 2200
+        y: 72
+        width: 1294
+        height: 1332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc54f72007f8642b4a04d3d2bb7b8b5d
+      internalID: 415473772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +279,14 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      item1_0: 1736796520
+      item1_1: -835698539
+      item1_2: 1328253511
+      item1_3: 536158575
+      item1_4: -845732540
+      item1_5: -1948905488
+      item1_6: 415473772
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

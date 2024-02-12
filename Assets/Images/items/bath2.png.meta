@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,7 +121,238 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: bath2_0
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 2036
+        width: 632
+        height: 746
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7748529755d94aa0af1dcf1cba5b504
+      internalID: -1853825457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bath2_1
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 2285
+        width: 816
+        height: 425
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33913f38e0c564b688c01f4d6590552d
+      internalID: -138520513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bath2_2
+      rect:
+        serializedVersion: 2
+        x: 1825
+        y: 2285
+        width: 709
+        height: 405
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32c21e868c2e64867b1d8182e0864514
+      internalID: -192276502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bath2_3
+      rect:
+        serializedVersion: 2
+        x: 2468
+        y: 73
+        width: 967
+        height: 2767
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4df31dd7d6ec245ce932521a9de6fcc7
+      internalID: 1042003286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bath2_4
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 1042
+        width: 879
+        height: 938
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b9c96e9417264262b5a0893be15dcd7
+      internalID: -1302089082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bath2_5
+      rect:
+        serializedVersion: 2
+        x: 1098
+        y: 1042
+        width: 596
+        height: 1122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca263f64385e4466b9674080e427c489
+      internalID: 1263821894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bath2_6
+      rect:
+        serializedVersion: 2
+        x: 1844
+        y: 1294
+        width: 670
+        height: 602
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eed4650c64f93454d80fc4661374347d
+      internalID: -1895244984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bath2_7
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 67
+        width: 886
+        height: 872
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1cd088e5b21a42e19fc5bc39dd77784
+      internalID: 1802465968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bath2_8
+      rect:
+        serializedVersion: 2
+        x: 1112
+        y: 801
+        width: 54
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e9ff352787314888ad2c664be2a3653
+      internalID: -1283695899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bath2_9
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 854
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ded0668c82a814f1eafceefe0f7738f2
+      internalID: 633288535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bath2_10
+      rect:
+        serializedVersion: 2
+        x: 1112
+        y: 67
+        width: 1394
+        height: 744
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d8c959935206404e88ddcf178b181c1
+      internalID: 675030268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +363,18 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bath2_0: -1853825457
+      bath2_1: -138520513
+      bath2_10: 675030268
+      bath2_2: -192276502
+      bath2_3: 1042003286
+      bath2_4: -1302089082
+      bath2_5: 1263821894
+      bath2_6: -1895244984
+      bath2_7: 1802465968
+      bath2_8: -1283695899
+      bath2_9: 633288535
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
