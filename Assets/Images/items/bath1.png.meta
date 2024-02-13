@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< Updated upstream
 guid: 5a703e10bed3e7b4096552aa3afaea3c
-=======
-guid: 59a42598274ea4c59bcc0f967d0e5c83
->>>>>>> Stashed changes
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,11 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-<<<<<<< Updated upstream
-  spriteMode: 1
-=======
   spriteMode: 2
->>>>>>> Stashed changes
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -129,116 +121,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-<<<<<<< Updated upstream
-    sprites: []
-=======
     sprites:
     - serializedVersion: 2
-      name: bath_1
+      name: bath1_0
       rect:
         serializedVersion: 2
-        x: 94
-        y: 1511
-        width: 1167
-        height: 797
+        x: 100
+        y: 1532
+        width: 1149
+        height: 768
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b67f6593c30994fdeb27c21931d83f45
-      internalID: 1934256230
+      spriteID: 9b624a84ed2004be3aa614ec9457eada
+      internalID: -1437245083
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bath_2
+      name: bath1_1
       rect:
         serializedVersion: 2
-        x: 346
-        y: 882
-        width: 731
-        height: 551
+        x: 1449
+        y: 1347
+        width: 1061
+        height: 1017
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 387ef34de99c04940a34e9e372ef9178
-      internalID: 1480825638
+      spriteID: c1e88add25d024633b3b5dc2d7544cd8
+      internalID: 724127596
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bath_3
+      name: bath1_2
       rect:
         serializedVersion: 2
-        x: 2776
-        y: 1631
-        width: 1253
-        height: 553
+        x: 2798
+        y: 1660
+        width: 1232
+        height: 456
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 44}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8e1e9e92590b84f3894a56106885b5b6
-      internalID: 551559467
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bath_4
-      rect:
-        serializedVersion: 2
-        x: 2071
-        y: 42
-        width: 567
-        height: 717
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f183b5ce28b55459e9bba368a2f496df
-      internalID: 1763175629
+      spriteID: 2dcaf642ffa714530b86e06e3f021bf8
+      internalID: -1378772834
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bath_5
+      name: bath1_3
       rect:
         serializedVersion: 2
-        x: 2852
-        y: 42
-        width: 1124
-        height: 1330
+        x: 221
+        y: 56
+        width: 976
+        height: 1375
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 626cff4baeb7644b08539f38478d44e5
-      internalID: 2144978768
+      spriteID: ea54052f1772c4f1387f2364cac020f3
+      internalID: 2987700
       vertices: []
       indices: 
       edges: []
       weights: []
->>>>>>> Stashed changes
+    - serializedVersion: 2
+      name: bath1_4
+      rect:
+        serializedVersion: 2
+        x: 2088
+        y: 57
+        width: 503
+        height: 696
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d18533eb987247129c8c0da37956bbc
+      internalID: 1799805450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bath1_5
+      rect:
+        serializedVersion: 2
+        x: 2853
+        y: 57
+        width: 1111
+        height: 1309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd7801200545f4edd86acc57a79f8f55
+      internalID: 445281154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -249,16 +258,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-<<<<<<< Updated upstream
-    nameFileIdTable: {}
-=======
     nameFileIdTable:
-      bath_1: 1934256230
-      bath_2: 1480825638
-      bath_3: 551559467
-      bath_4: 1763175629
-      bath_5: 2144978768
->>>>>>> Stashed changes
+      bath1_0: -1437245083
+      bath1_1: 724127596
+      bath1_2: -1378772834
+      bath1_3: 2987700
+      bath1_4: 1799805450
+      bath1_5: 445281154
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
