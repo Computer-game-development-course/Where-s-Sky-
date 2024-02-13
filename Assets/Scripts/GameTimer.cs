@@ -31,14 +31,24 @@ public class GameTimer : MonoBehaviour
     void UpdateTimerText()
     {
         // Set the timerText to show the rounded remaining time
-        timerText.text = "Time left: " + Mathf.RoundToInt(timeLeft).ToString();
+        int curTime = Mathf.RoundToInt(timeLeft);
+
+        if (curTime >= 10)
+        {
+            timerText.text = "00:" + curTime.ToString();
+        }
+        else
+        {
+            timerText.text = "00:0" + curTime.ToString();
+        }
     }
 
     // Load the 'lose' scene
     void LoadLoseScene()
     {
         // Load the scene named 'lose'
-        SceneManager.LoadScene("lose");
+        Destroy(gameObject);
+        SceneManager.LoadScene("main");
         Debug.Log("Time's Up! You Lost!");
     }
 }
