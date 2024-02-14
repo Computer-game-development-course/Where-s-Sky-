@@ -8,27 +8,27 @@ public class Singleton : MonoBehaviour
     // Array of scene names where this object should persist
     public string[] persistInScenes;
 
-    void Awake()
+    private void Awake()
     {
-        // Check if we're in a scene where the object should persist
-        if (ShouldPersistInCurrentScene())
+        SceneManager.sceneLoaded += OnSceneLoaded; // Subscribe to the sceneLoaded event
+
+        if (instance == null)
         {
-            if (instance == null)
-            {
-                instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            else if (instance != this)
-            {
-                Destroy(gameObject); // Destroy any duplicate objects
-            }
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         }
-        else
+        else if (instance != this)
         {
-            if (this != instance)
-            {
-                Destroy(gameObject); // Destroy this object if it's not in a scene from the list
-            }
+            Destroy(gameObject); // Destroy any duplicate objects
+        }
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // This method is called every time a scene is loaded
+        if (!ShouldPersistInCurrentScene())
+        {
+            Destroy(gameObject); // Destroy this object if it's not in a scene from the list
         }
     }
 
@@ -43,5 +43,10 @@ public class Singleton : MonoBehaviour
             }
         }
         return false; // Current scene is not in the list, should not persist
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded; // Unsubscribe to prevent memory leaks
     }
 }

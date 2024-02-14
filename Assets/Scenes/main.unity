@@ -234,6 +234,7 @@ GameObject:
   - component: {fileID: 170552217}
   - component: {fileID: 170552216}
   - component: {fileID: 170552218}
+  - component: {fileID: 170552219}
   m_Layer: 0
   m_Name: settings_button
   m_TagString: button
@@ -343,6 +344,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2.895
+--- !u!114 &170552219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170552215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c933f3f7bb560e64a8ac356f978c9b56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToLoad: massege
+  animationDuration: 0.5
 --- !u!1 &349767905
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,7 +491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c933f3f7bb560e64a8ac356f978c9b56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: room1
+  sceneToLoad: info
   animationDuration: 0.5
 --- !u!1 &380432487
 GameObject:

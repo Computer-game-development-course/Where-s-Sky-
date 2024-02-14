@@ -48,7 +48,7 @@ public class GameTimer : MonoBehaviour
     {
         // Load the scene named 'lose'
         Destroy(gameObject);
-        SceneManager.LoadScene("main");
+        SceneManager.LoadScene("lose");
         Debug.Log("Time's Up! You Lost!");
     }
 }

@@ -17,12 +17,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/win.unity
     guid: b2c4739b788493e4eaaf8f5c40149f75
-  - enabled: 0
-    path: Assets/Scenes/lose.unity
-    guid: 7c6b83e7f372e7a46b33dc3f9fdf2914
-  - enabled: 0
-    path: Assets/Scenes/massege.unity
-    guid: 1570cf44f2020e54a90bfa0df1e3fd90
   - enabled: 1
     path: Assets/Scenes/main.unity
     guid: 042d221c22c75e74888b47454b52850b
@@ -30,8 +24,11 @@ EditorBuildSettings:
     path: Assets/Scenes/select_level.unity
     guid: e6cd3386781a5f24b8f5b949aec8d6fa
   - enabled: 1
-    path: Assets/Scenes/Level.unity
-    guid: c13c3b881580bcc44b87e2426f25374e
+    path: Assets/Scenes/massege.unity
+    guid: 1c7f6dda90112e540a289d0cd9864baf
+  - enabled: 1
+    path: Assets/Scenes/lose.unity
+    guid: 84aa1c935c0e0bf448939a0d339b5f9e
   - enabled: 1
     path: Assets/Scenes/room1.unity
     guid: bf5faecd7e8e94d47a91e20e03a61343
@@ -50,4 +47,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/room6.unity
     guid: 927d260c5af3ab0488b60a05540d0d02
+  - enabled: 1
+    path: Assets/Scenes/info.unity
+    guid: c13c3b881580bcc44b87e2426f25374e
+  - enabled: 1
+    path: Assets/Scenes/info2.unity
+    guid: e074d3742975b2c41a55b975145fd60a
+  - enabled: 1
+    path: Assets/Scenes/info3.unity
+    guid: 955de8130a974e740b3457b80b212164
+  - enabled: 1
+    path: Assets/Scenes/info4.unity
+    guid: 85f8f06dbade4a34f9472bc481cc46eb
   m_configObjects: {}

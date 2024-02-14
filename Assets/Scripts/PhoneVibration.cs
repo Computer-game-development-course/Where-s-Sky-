@@ -3,10 +3,10 @@ using UnityEngine;
 public class PhoneVibration : MonoBehaviour
 {
     [Tooltip("Controls the strength of the vibration effect.")]
-    [SerializeField] float vibrationIntensity = 0.1f;
+    [SerializeField] private float vibrationIntensity = 0.1f;
 
     [Tooltip("Duration in seconds before the vibration stops.")]
-    [SerializeField] float vibrationSpeed = 50.0f;
+    [SerializeField] private float vibrationSpeed = 50.0f;
 
     private Vector3 originalPosition; // Stores the original position of the phone
     private bool isVibrating = false; // Flag to determine if the phone is currently vibrating
@@ -22,7 +22,10 @@ public class PhoneVibration : MonoBehaviour
         if (isVibrating)
         {
             // Simulate vibration by applying small, random movements to the phone's position
-            transform.position = originalPosition + Random.insideUnitSphere * vibrationIntensity;
+            // Ensure Z position remains 0 by using originalPosition.z
+            Vector3 newPosition = originalPosition + Random.insideUnitSphere * vibrationIntensity;
+            newPosition.z = originalPosition.z; // Keep the original Z position unchanged
+            transform.position = newPosition;
         }
     }
 
