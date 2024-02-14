@@ -1456,6 +1456,60 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.98, y: 0.73}
   m_EdgeRadius: 0
+--- !u!1 &367664575 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6956127581464720971, guid: d7a5a5b66da9fd84e96d8a6a9dc7075f, type: 3}
+  m_PrefabInstance: {fileID: 419273482}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &367664576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367664575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c933f3f7bb560e64a8ac356f978c9b56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToLoad: info
+  animationDuration: 0.5
+--- !u!58 &367664577
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367664575}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2.18
 --- !u!1001 &419273482
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1522,6 +1576,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7919434880954160222, guid: d7a5a5b66da9fd84e96d8a6a9dc7075f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 419273484}
+    - targetCorrespondingSourceObject: {fileID: 6956127581464720971, guid: d7a5a5b66da9fd84e96d8a6a9dc7075f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 367664577}
+    - targetCorrespondingSourceObject: {fileID: 6956127581464720971, guid: d7a5a5b66da9fd84e96d8a6a9dc7075f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 367664576}
     - targetCorrespondingSourceObject: {fileID: 8394005761377097866, guid: d7a5a5b66da9fd84e96d8a6a9dc7075f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 419273488}
@@ -5783,8 +5843,8 @@ Transform:
   m_GameObject: {fileID: 1762729177}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0773, y: 2.5427, z: 0}
-  m_LocalScale: {x: 0.25347698, y: 0.28749508, z: 1}
+  m_LocalPosition: {x: 0.037, y: 2.5427, z: 0}
+  m_LocalScale: {x: 0.27682647, y: 0.28749508, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

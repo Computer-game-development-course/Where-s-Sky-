@@ -1,52 +1,63 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; // Required for accessing scene management
+using UnityEngine.SceneManagement; // Required for accessing and managing scenes within Unity.
 
 public class Singleton : MonoBehaviour
 {
+    // Holds a reference to the singleton instance of this class.
     private static Singleton instance = null;
 
-    // Array of scene names where this object should persist
-    public string[] persistInScenes;
+    [Tooltip("Names of the scenes where this object should not be destroyed.")]
+    [SerializeField] string[] persistInScenes;
 
     private void Awake()
     {
-        SceneManager.sceneLoaded += OnSceneLoaded; // Subscribe to the sceneLoaded event
+        // Subscribes to the sceneLoaded event to get notified whenever a new scene is loaded.
+        SceneManager.sceneLoaded += OnSceneLoaded;
 
+        // If an instance of this Singleton does not exist, this becomes the instance.
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject); // Prevents the object from being destroyed on scene loads.
         }
-        else if (instance != this)
+        else if (instance != this) // If another instance exists, destroy this to enforce the singleton pattern.
         {
-            Destroy(gameObject); // Destroy any duplicate objects
+            Destroy(gameObject);
         }
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // This method is called every time a scene is loaded
+        // Callback method that gets called every time a new scene is loaded.
         if (!ShouldPersistInCurrentScene())
         {
-            Destroy(gameObject); // Destroy this object if it's not in a scene from the list
+            // If the current scene is not in the list of scenes to persist in, destroy this object.
+            Destroy(gameObject);
         }
     }
 
+    // Determines if this Singleton object should persist in the current scene.
     private bool ShouldPersistInCurrentScene()
     {
+        // Gets the name of the currently active scene.
         string currentSceneName = SceneManager.GetActiveScene().name;
+        // Iterates over the list of scenes where this object should persist.
         foreach (string sceneName in persistInScenes)
         {
             if (currentSceneName.Equals(sceneName))
             {
-                return true; // Current scene is in the list, should persist
+                // If the current scene's name matches one in the list, the object should persist.
+                return true;
             }
         }
-        return false; // Current scene is not in the list, should not persist
+        // If no match is found, the object should not persist in the current scene.
+        return false;
     }
 
     private void OnDestroy()
     {
-        SceneManager.sceneLoaded -= OnSceneLoaded; // Unsubscribe to prevent memory leaks
+        // Unsubscribes from the sceneLoaded event when this object is destroyed.
+        // This is important to prevent memory leaks by ensuring the object can be properly garbage collected.
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }
