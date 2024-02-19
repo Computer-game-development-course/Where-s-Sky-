@@ -46,8 +46,8 @@ We will make a calculation based on the following data and assumptions:
 - Objects hit on average = 2 (discount for the purpose of the example, the number of objects the player will hit on average before finding the cat).
 
 **Calculation of time remaining after hitting dynamic objects that do not contain the cat:**
-Remaining time = initial time - (objects damaged on average * time reduction for incorrect dynamic object)
-40 - (2*5) = 30
+Remaining time = initial time - (objects damaged on average X time reduction for incorrect dynamic object)
+40 - (2X5) = 30
 
 **Points reward calculation:**
 Reward points = points for finding a cat = 2S
@@ -140,7 +140,7 @@ Examples of possible locations:
 
 **Answer:** The player's control over the game is mostly direct:
 
-- **Direct control** - the player directly manages his character, the actions it performs (eg, walking, searching, collecting items, using add-ons), and the interaction with objects in the game. This includes clicking on the screen or using a keyboard/mouse on PCs or touching the touch screen on mobile devices.
+- **Direct control** - the player directly manages his character, the actions it performs (eg, walking, searching, collecting items, using add-ons), and the interaction with objects in the game. This includes clicking on the screen or using a keyboard/mouse on PCs.
 
 **Question:** Is it in real time or according to turns?
 
