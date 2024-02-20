@@ -2,7 +2,7 @@
 
 ![image](https://github.com/Computer-game-development-course/Where-s-Sky-/assets/93255163/c34d6a1e-44b5-45e6-8db5-82d74975be67)
 
-* [Click here to play on itch.io](https://alinaandyuval.itch.io/whereisskynew)
+* [Click here to play on itch.io](https://alinaandyuval.itch.io/whereissky-new-week7)
 
 ## Overview
 Welcome to "Where's Sky?",  game that challenges players to find Sky, a cleverly hidden pet in a beautifully designed in-game home.
