@@ -5,10 +5,47 @@ using UnityEngine.SceneManagement;
 public class GameTimer : MonoBehaviour
 {
     [Tooltip("TextMeshPro component for displaying the timer.")]
-    [SerializeField] TextMeshPro timerText;
+    [SerializeField] private TextMeshPro timerText;
 
     [Tooltip("Total time in seconds the player has to find the cat.")]
-    [SerializeField] float timeLeft = 20f; // Total time for the game (in seconds)
+    [SerializeField] private float timeLeft = 20f; // Total time for the game (in seconds)
+    [SerializeField] private float initial_time = 20f;
+
+    public class Level
+    {
+        public bool[] level_stars = new bool[3];
+    }
+
+    public Level[] levels; // Corrected the class name here
+
+    void Start()
+    {
+        // Initialize the levels array with 30 Level objects
+        levels = new Level[30];
+        for (int i = 0; i < levels.Length; i++)
+        {
+            levels[i] = new Level();
+        }
+    }
+
+    public float GetInitialTime()
+    {
+        return initial_time;
+    }
+
+    public float GetTimeLeft()
+    {
+        return timeLeft;
+    }
+
+    public void SetStarsForLevel(int levelNumber, int starsEarned)
+    {
+        // Reset all stars to false for the level
+        for (int i = 0; i < levels[levelNumber - 1].level_stars.Length; i++)
+        {
+            levels[levelNumber - 1].level_stars[i] = i < starsEarned;
+        }
+    }
 
     void Update()
     {
@@ -30,25 +67,14 @@ public class GameTimer : MonoBehaviour
     // Updates the timer text in the UI
     void UpdateTimerText()
     {
-        // Set the timerText to show the rounded remaining time
-        int curTime = Mathf.RoundToInt(timeLeft);
-
-        if (curTime >= 10)
-        {
-            timerText.text = "00:" + curTime.ToString();
-        }
-        else
-        {
-            timerText.text = "00:0" + curTime.ToString();
-        }
+        // Format the timer string to always show two digits
+        timerText.text = $"00:{timeLeft:00}";
     }
 
     // Load the 'lose' scene
     void LoadLoseScene()
     {
-        // Load the scene named 'lose'
-        Destroy(gameObject);
-        SceneManager.LoadScene("lose");
         Debug.Log("Time's Up! You Lost!");
+        SceneManager.LoadScene("lose");
     }
 }

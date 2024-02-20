@@ -2,48 +2,69 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [Tooltip("The GameObject that represents the left arrow visual or trigger.")]
     [SerializeField] GameObject leftArrow;
-
-    [Tooltip("The GameObject that represents the right arrow visual or trigger.")]
     [SerializeField] GameObject rightArrow;
-
-    [Tooltip("The speed at which the camera moves.")]
     [SerializeField] float cameraMoveSpeed = 5.0f;
-
-    [Tooltip("The left boundary of the camera's movement.")]
     [SerializeField] float leftLimit = 0.2f;
-
-    [Tooltip("The right boundary of the camera's movement.")]
     [SerializeField] float rightLimit = 5.2f;
+
+    private bool isFlashingRight = false;
+    private bool isFlashingLeft = false;
 
     void Update()
     {
-        // Calls the method responsible for handling camera movement.
         HandleCameraMovement();
+        UpdateArrowVisibilityAndEffect();
     }
 
     private void HandleCameraMovement()
     {
-        // Checks if the right arrow key is being pressed.
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            // Checks if the camera's position is within the allowed range to the right.
             if (transform.position.x < rightLimit)
             {
-                // Moves the camera to the right at the specified speed, adjusted for frame rate.
                 transform.Translate(Vector3.right * cameraMoveSpeed * Time.deltaTime);
+                if (!isFlashingRight) StartCoroutine(FlashArrow(rightArrow, true));
             }
         }
-        // Checks if the left arrow key is being pressed.
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
-            // Checks if the camera's position is within the allowed range to the left.
             if (transform.position.x > leftLimit)
             {
-                // Moves the camera to the left at the specified speed, adjusted for frame rate.
                 transform.Translate(Vector3.left * cameraMoveSpeed * Time.deltaTime);
+                if (!isFlashingLeft) StartCoroutine(FlashArrow(leftArrow, false));
             }
         }
+    }
+
+    private void UpdateArrowVisibilityAndEffect()
+    {
+        rightArrow.SetActive(transform.position.x < rightLimit);
+        leftArrow.SetActive(transform.position.x > leftLimit);
+    }
+
+    System.Collections.IEnumerator FlashArrow(GameObject arrow, bool isRight)
+    {
+        if (isRight) isFlashingRight = true;
+        else isFlashingLeft = true;
+
+        SpriteRenderer renderer = arrow.GetComponent<SpriteRenderer>();
+        Color originalColor = renderer.color;
+        float flashDuration = 0.5f; // Duration of the flash effect
+        float timer = 0;
+
+        while (timer <= flashDuration)
+        {
+            // Flash effect logic (simple example: toggle visibility)
+            float lerpTime = Mathf.PingPong(timer, flashDuration / 2) / (flashDuration / 2);
+            renderer.color = new Color(originalColor.r, originalColor.g, originalColor.b, Mathf.Lerp(0.2f, 1f, lerpTime));
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        renderer.color = originalColor; // Reset to original color after flashing
+
+        if (isRight) isFlashingRight = false;
+        else isFlashingLeft = false;
     }
 }
