@@ -9,6 +9,10 @@ TagManager:
   - dynamic
   - lock
   - star
+  - cat
+  - EDGE
+  - drop
+  - DEL
   layers:
   - Default
   - TransparentFX

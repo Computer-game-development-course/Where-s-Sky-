@@ -1,54 +1,49 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LevelStarsManager : MonoBehaviour
 {
-    [System.Serializable]
-    public class Level
+    void OnEnable()
     {
-        public GameObject starsContainer; // The parent object of the stars for each level
-        public GameObject levelLock;
-        public GameObject[] stars; // Individual star objects
+        UpdateLevelUI();
     }
 
-    private GameTimer gameTimer; // Reference to the GameTimer script
-
-    public Level[] levelsStars; // Array of all levels and their stars
-
-    [Tooltip("Names of the scenes where this object should not be destroyed.")]
-    [SerializeField] string[] persistInScenes;
-
-    void Update()
+    private void UpdateLevelUI()
     {
-        gameTimer = FindObjectOfType<GameTimer>();
-        UpdateStarsVisibility();
-    }
-
-    void UpdateStarsVisibility()
-    {
-        for (int i = 0; i < levelsStars.Length; i++)
+        for (int i = 0; i < GameManager.Instance.stages.Length; i++)
         {
-            levelsStars[i].starsContainer.SetActive(true);
-            levelsStars[i].levelLock.SetActive(true);
+            // Finding each level object by name
+            GameObject levelObject = GameObject.Find($"Level {i + 1}");
 
-            foreach (GameObject star in levelsStars[i].stars)
+            if (levelObject != null)
             {
-                star.SetActive(false);
-            }
+                // Update lock status
+                GameObject lockObject = levelObject.transform.Find("lock").gameObject;
+                if (lockObject != null)
+                {
+                    bool isStageOpen = GameManager.Instance.stages[i].isOpen;
+                    lockObject.SetActive(!isStageOpen);
 
-            if (gameTimer != null)
-            {
-                if (gameTimer.levels[i].level_stars[0] == true)
-                {
-                    levelsStars[i].stars[0].SetActive(true);
+                    // Enable or disable the SceneToLoad script based on the stage's open status
+                    AssetClick sceneToLoadScript = levelObject.GetComponent<AssetClick>();
+                    if (sceneToLoadScript != null)
+                    {
+                        sceneToLoadScript.enabled = isStageOpen;
+                    }
                 }
-                if (gameTimer.levels[i].level_stars[1] == true)
+
+                // Update stars
+                GameObject starsObject = levelObject.transform.Find("stars").gameObject;
+                if (starsObject != null)
                 {
-                    levelsStars[i].stars[1].SetActive(true);
-                }
-                if (gameTimer.levels[i].level_stars[2] == true)
-                {
-                    levelsStars[i].stars[2].SetActive(true);
+                    GameObject star1 = starsObject.transform.Find("star1").gameObject;
+                    GameObject star2 = starsObject.transform.Find("star2").gameObject;
+                    GameObject star3 = starsObject.transform.Find("star3").gameObject;
+
+                    // Update visibility based on the number of stars earned
+                    int starsEarned = GameManager.Instance.stages[i].stars;
+                    star1.SetActive(starsEarned >= 1);
+                    star2.SetActive(starsEarned >= 2);
+                    star3.SetActive(starsEarned == 3);
                 }
             }
         }
