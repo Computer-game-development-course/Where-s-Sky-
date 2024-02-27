@@ -323,7 +323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: info4
-  animationDuration: 0.5
+  animationDuration: 0.2
 --- !u!70 &633912141
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

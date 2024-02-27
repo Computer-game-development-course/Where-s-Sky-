@@ -140,6 +140,13 @@ public class LevelCompletion : MonoBehaviour
                 // For TextMeshPro components, control visibility through the enabled property
                 tmpText.enabled = isVisible;
             }
+
+            // Enable or disable the AssetClick script based on the room's open status
+            AssetClick sceneToLoadScript = child.GetComponent<AssetClick>();
+            if (sceneToLoadScript != null)
+            {
+                sceneToLoadScript.enabled = isVisible;
+            }
         }
     }
 }

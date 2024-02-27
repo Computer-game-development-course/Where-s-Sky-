@@ -603,7 +603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: room1
-  animationDuration: 0.5
+  animationDuration: 0.2
 --- !u!58 &2097125020
 CircleCollider2D:
   m_ObjectHideFlags: 0

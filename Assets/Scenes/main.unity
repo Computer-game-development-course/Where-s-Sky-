@@ -793,6 +793,9 @@ MonoBehaviour:
   - isOpen: 0
   - isOpen: 0
   totalCoins: 0
+  timeLeft: 40
+  initial_time: 40
+  isReset: 0
 --- !u!4 &733367469
 Transform:
   m_ObjectHideFlags: 0

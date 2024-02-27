@@ -77,7 +77,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 40
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &691770492679359441
 MonoBehaviour:
@@ -252,7 +252,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 30
   m_Sprite: {fileID: 21300000, guid: a1e62c5393ad0b84f82c9060607fb7e9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -284,9 +284,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad54706fc3af91642b2eb4abdc3c63d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerText: {fileID: 691770492679359441}
   timeLeft: 40
   initial_time: 40
+  persistInScenes: []
 --- !u!114 &2628821244697063309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,6 +312,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9429d8dae6923a41a0cd8fc63416485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  persistInScenes:
-  - room1
-  - select_level

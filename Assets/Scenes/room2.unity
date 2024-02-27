@@ -1383,7 +1383,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5309203015126049725, guid: d7a5a5b66da9fd84e96d8a6a9dc7075f, type: 3}
       propertyPath: leftLimit
-      value: 0
+      value: -0.8
       objectReference: {fileID: 0}
     - target: {fileID: 5309203015126049725, guid: d7a5a5b66da9fd84e96d8a6a9dc7075f, type: 3}
       propertyPath: rightLimit
