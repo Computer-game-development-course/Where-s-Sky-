@@ -10,6 +10,8 @@ public class AssetClick : MonoBehaviour
     [Tooltip("Total duration of the scaling animation.")]
     [SerializeField] float animationDuration = 0.5f;
 
+    private GameTimer gameTimer; // Reference to the GameTimer script
+
     void Update()
     {
         // Check for mouse button (left click) press
@@ -53,6 +55,38 @@ public class AssetClick : MonoBehaviour
             transform.localScale = Vector3.Lerp(targetScale, originalScale, timer / (animationDuration / 2));
             timer += Time.deltaTime;
             yield return null; // Wait for the next frame
+        }
+
+        gameTimer = FindObjectOfType<GameTimer>();
+        if (gameTimer != null)
+        {
+            if (sceneToLoad.Equals("room1"))
+            {
+                if (gameObject.name.Equals("play_button") || gameObject.name.Equals("continue_buton"))
+                {
+                    GameManager.Instance.currentStage = GameManager.Instance.lastToOpen;
+                    GameManager.Instance.InittTime();
+                }
+                else
+                {
+                    // Assuming 'gameObject' is the current GameObject this script is attached to,
+                    // or you have a reference to the GameObject you want to check.
+                    for (int i = 0; i < 30; i++)
+                    {
+                        // Construct the expected name string
+                        string expectedName = $"Level {i + 1}";
+
+                        // Check if the name of the object matches the expected name
+                        if (gameObject.name.Equals(expectedName))
+                        {
+                            // Set the current stage in GameManager to the matched level
+                            GameManager.Instance.currentStage = i;
+                            GameManager.Instance.InittTime();
+                            break; // Exit the loop once the match is found
+                        }
+                    }
+                }
+            }
         }
 
         // Load the specified scene after the animation is complete
