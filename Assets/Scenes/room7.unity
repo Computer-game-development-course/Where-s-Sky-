@@ -2710,7 +2710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3dc74df1a4795949be301c9164d08c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vibrationIntensity: 0.01
+  vibrationIntensity: 0.02
   vibrationSpeed: 120
 --- !u!212 &1782259635
 SpriteRenderer:

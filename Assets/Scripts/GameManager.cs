@@ -52,6 +52,8 @@ public class GameManager : MonoBehaviour
     public void ResetTime()
     {
         isReset = true;
+        initial_time = stages[currentStage].timeLimit;
+        timeLeft = stages[currentStage].timeLimit;
     }
 
     public void InittTime()
