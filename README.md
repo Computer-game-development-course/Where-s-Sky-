@@ -5,6 +5,7 @@
 * [Click here to play on itch.io](https://alinaandyuval.itch.io/whereissky-new-week7)
 
 ## Overview
+
 Welcome to "Where's Sky?",  game that challenges players to find Sky, a cleverly hidden pet in a beautifully designed in-game home.
 
 ## Game Features
