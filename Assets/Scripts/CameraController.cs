@@ -23,6 +23,7 @@ public class CameraController : MonoBehaviour
         {
             if (transform.position.x < rightLimit)
             {
+                //Translate used to move the GameObject in the direction and distance of the provided Vector3
                 transform.Translate(Vector3.right * cameraMoveSpeed * Time.deltaTime);
                 if (!isFlashingRight) StartCoroutine(FlashArrow(rightArrow, true));
             }
@@ -31,6 +32,7 @@ public class CameraController : MonoBehaviour
         {
             if (transform.position.x > leftLimit)
             {
+                //Translate used to move the GameObject in the direction and distance of the provided Vector3
                 transform.Translate(Vector3.left * cameraMoveSpeed * Time.deltaTime);
                 if (!isFlashingLeft) StartCoroutine(FlashArrow(leftArrow, false));
             }
@@ -43,6 +45,7 @@ public class CameraController : MonoBehaviour
         leftArrow.SetActive(transform.position.x > leftLimit);
     }
 
+    // IEnumerator - is the return type for Unity coroutines, allowing to pause execution and resume it over several frames
     System.Collections.IEnumerator FlashArrow(GameObject arrow, bool isRight)
     {
         if (isRight) isFlashingRight = true;
@@ -50,19 +53,21 @@ public class CameraController : MonoBehaviour
 
         SpriteRenderer renderer = arrow.GetComponent<SpriteRenderer>();
         Color originalColor = renderer.color;
-        float flashDuration = 0.5f; // Duration of the flash effect
+        float flashDuration = 0.5f;
         float timer = 0;
 
         while (timer <= flashDuration)
         {
-            // Flash effect logic (simple example: toggle visibility)
+            // Mathf.PingPong oscillate a value between 0 and flashDuration / 2 as timer increases.
             float lerpTime = Mathf.PingPong(timer, flashDuration / 2) / (flashDuration / 2);
+            // Mathf.Lerp interpolates between two alpha values (0.2 and 1.0) based on lerpTime
             renderer.color = new Color(originalColor.r, originalColor.g, originalColor.b, Mathf.Lerp(0.2f, 1f, lerpTime));
             timer += Time.deltaTime;
             yield return null;
         }
 
-        renderer.color = originalColor; // Reset to original color after flashing
+        // Reset to original color after flashing
+        renderer.color = originalColor;
 
         if (isRight) isFlashingRight = false;
         else isFlashingLeft = false;

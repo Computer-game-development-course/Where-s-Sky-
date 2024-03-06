@@ -6,7 +6,6 @@ public class StageData
     public bool isOpen = false;
     public int stars = 0;
     public float timeLimit = 0f;
-    // Additional stage-specific data can be added here
 }
 
 [System.Serializable]
@@ -23,7 +22,7 @@ public class GameManager : MonoBehaviour
     public int currentStage = 1;
     public int lastToOpen = 1;
 
-    public StageData[] stages = new StageData[30]; // Assuming 30 stages
+    public StageData[] stages = new StageData[30];
     public RoomData[] rooms = new RoomData[8];
     public int totalCoins = 0;
 
@@ -92,32 +91,31 @@ public class GameManager : MonoBehaviour
             {
                 lastToOpen = currentStage + 1;
             }
-
-            if (currentStage + 1 == 2)
+            if (currentStage + 1 == 2)// Open a room after completing level 2
             {
                 rooms[1].isOpen = true;
             }
-            else if (currentStage + 1 == 4)
+            else if (currentStage + 1 == 4)// Open a room after completing level 4
             {
                 rooms[2].isOpen = true;
             }
-            else if (currentStage + 1 == 8)
+            else if (currentStage + 1 == 8)// Open a room after completing level 8
             {
                 rooms[3].isOpen = true;
             }
-            else if (currentStage + 1 == 12)
+            else if (currentStage + 1 == 12)// Open a room after completing level 12
             {
                 rooms[4].isOpen = true;
             }
-            else if (currentStage + 1 == 17)
+            else if (currentStage + 1 == 17)// Open a room after completing level 17
             {
                 rooms[5].isOpen = true;
             }
-            else if (currentStage + 1 == 21)
+            else if (currentStage + 1 == 21)// Open a room after completing level 21
             {
                 rooms[6].isOpen = true;
             }
-            else if (currentStage + 1 == 25)
+            else if (currentStage + 1 == 25)// Open a room after completing level 25
             {
                 rooms[7].isOpen = true;
             }
@@ -137,7 +135,7 @@ public class GameManager : MonoBehaviour
         totalCoins += amount;
     }
 
-    // Method to open rooms, update time limits, etc., can be added similarly
+    // Method to open rooms
     public void OpenRoom(int roomIndex)
     {
         if (roomIndex >= 0 && roomIndex < rooms.Length)
@@ -146,12 +144,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Method to update the time limit for a stage
+    // Method to update the time limit for a level
     public void SetStageTimeLimit(int stage, float time)
     {
         if (stage >= 0 && stage < stages.Length)
         {
-            stages[stage].timeLimit = time;
+            stages[stage].timeLimit -= time;
         }
     }
 }

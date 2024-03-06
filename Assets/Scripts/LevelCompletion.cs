@@ -5,18 +5,11 @@ using TMPro;
 public class LevelCompletion : MonoBehaviour
 {
     public GameObject level_up_asse;
-    //public GameObject timeVisual;
-    //private GameTimer gameTimer; // Reference to the GameTimer script
-
     private GameObject[] stars;
     public TMP_Text moneyText;
 
     void Start()
     {
-        //timeVisual.SetActive(true);
-        // Find the GameTimer component in the scene
-        //gameTimer = FindObjectOfType<GameTimer>(); // Adjust this if the structure is different
-
         // Initialize stars array
         stars = new GameObject[6];
         stars[0] = level_up_asse.transform.Find("star1").gameObject;
@@ -82,7 +75,6 @@ public class LevelCompletion : MonoBehaviour
             stars[3].SetActive(true);
             stars[4].SetActive(true);
             stars[5].SetActive(true);
-            //gameTimer.SetStarsForLevel(1, 1);
             GameManager.Instance.SetStageStars(levelNum, 1);
         }
         else if (ratio >= 0.25f && ratio <= 0.75f)
@@ -93,8 +85,8 @@ public class LevelCompletion : MonoBehaviour
             stars[3].SetActive(true);
             stars[4].SetActive(true);
             stars[5].SetActive(true);
-            //gameTimer.SetStarsForLevel(1, 2);
             GameManager.Instance.SetStageStars(levelNum, 2);
+            GameManager.Instance.SetStageTimeLimit(levelNum + 1, 5);
         }
         else
         {
@@ -104,8 +96,8 @@ public class LevelCompletion : MonoBehaviour
             stars[3].SetActive(true);
             stars[4].SetActive(true);
             stars[5].SetActive(true);
-            ///gameTimer.SetStarsForLevel(1, 3);
             GameManager.Instance.SetStageStars(levelNum, 3);
+            GameManager.Instance.SetStageTimeLimit(levelNum + 1, 10);
         }
 
         // Calculate money
