@@ -1179,7 +1179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 894acb3aa87504c4b99acb4bd97b3621, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  featureName: snake
+  featureName: snack
   cost: 100
   animationDuration: 0.2
   moveDistance: 0.5
@@ -1778,7 +1778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 894acb3aa87504c4b99acb4bd97b3621, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  featureName: X2
+  featureName: x2
   cost: 100
   animationDuration: 0.2
   moveDistance: 0.5
@@ -3615,7 +3615,7 @@ GameObject:
   - component: {fileID: 1970378840}
   - component: {fileID: 1970378839}
   m_Layer: 0
-  m_Name: snake
+  m_Name: snack
   m_TagString: background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

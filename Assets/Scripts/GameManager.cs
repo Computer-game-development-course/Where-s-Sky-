@@ -14,6 +14,29 @@ public class RoomData
     public bool isOpen = false;
 }
 
+[System.Serializable]
+public class Hourglass
+{
+    public int amount = 0;
+}
+
+[System.Serializable]
+public class Snack
+{
+    public int amount = 0;
+}
+
+[System.Serializable]
+public class X2
+{
+    public int amount = 0;
+}
+
+[System.Serializable]
+public class Ball
+{
+    public int amount = 0;
+}
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
@@ -24,6 +47,10 @@ public class GameManager : MonoBehaviour
 
     public StageData[] stages = new StageData[30];
     public RoomData[] rooms = new RoomData[8];
+    public Hourglass hourglass;
+    public Snack snack;
+    public X2 x2;
+    public Ball ball;
     public int totalCoins = 0;
 
     public float timeLeft = 40f; // Total time for the game (in seconds)
@@ -147,12 +174,42 @@ public class GameManager : MonoBehaviour
 
     public void AddFeature(string s)
     {
-        //
+        if (s.Equals("hourglass"))
+        {
+            hourglass.amount++;
+        }
+        else if (s.Equals("snack"))
+        {
+            snack.amount++;
+        }
+        else if (s.Equals("x2"))
+        {
+            x2.amount++;
+        }
+        else if (s.Equals("ball"))
+        {
+            ball.amount++;
+        }
     }
 
     public void RemoveFeature(string s)
     {
-        //
+        if (s.Equals("hourglass"))
+        {
+            hourglass.amount--;
+        }
+        else if (s.Equals("snack"))
+        {
+            snack.amount--;
+        }
+        else if (s.Equals("x2"))
+        {
+            x2.amount--;
+        }
+        else if (s.Equals("ball"))
+        {
+            ball.amount--;
+        }
     }
 
     // Method to open rooms
