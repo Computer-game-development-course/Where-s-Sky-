@@ -82,6 +82,11 @@ public class GameManager : MonoBehaviour
         timeLeft = sec;
     }
 
+    public int GettotalCoins()
+    {
+        return totalCoins;
+    }
+
     public void OpenNextStage()
     {
         if (currentStage + 1 < stages.Length)
@@ -133,6 +138,21 @@ public class GameManager : MonoBehaviour
     public void AddCoins(int amount)
     {
         totalCoins += amount;
+    }
+
+    public void RemoveCoins(int amount)
+    {
+        totalCoins -= amount;
+    }
+
+    public void AddFeature(string s)
+    {
+        //
+    }
+
+    public void RemoveFeature(string s)
+    {
+        //
     }
 
     // Method to open rooms

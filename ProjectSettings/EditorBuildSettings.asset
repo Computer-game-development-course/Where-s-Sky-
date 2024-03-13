@@ -71,4 +71,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/info4.unity
     guid: 85f8f06dbade4a34f9472bc481cc46eb
+  - enabled: 1
+    path: Assets/Scenes/side_game.unity
+    guid: 287bb99183c671640baf2cd12aa47c6f
   m_configObjects: {}
