@@ -192,6 +192,29 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public int getFeatureAmount(string s)
+    {
+        if (s.Equals("hourglass"))
+        {
+            return hourglass.amount;
+
+        }
+        else if (s.Equals("snack"))
+        {
+            return snack.amount;
+        }
+        else if (s.Equals("x2"))
+        {
+            return x2.amount;
+        }
+        else if (s.Equals("ball"))
+        {
+            return ball.amount;
+        }
+
+        return 0;
+    }
+
     public void RemoveFeature(string s)
     {
         if (s.Equals("hourglass"))

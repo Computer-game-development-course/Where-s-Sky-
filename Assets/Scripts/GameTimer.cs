@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro; // Namespace for TextMeshPro
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class GameTimer : MonoBehaviour
 {
@@ -14,9 +15,12 @@ public class GameTimer : MonoBehaviour
     private bool isOn = false;
     private bool isReset = false;
 
+    private FeaturesManager featuresManager;
+
     void Start()
     {
         GameManager.Instance.InittTime();
+        featuresManager = FindObjectOfType<FeaturesManager>();
     }
     void Update()
     {
@@ -167,6 +171,25 @@ public class GameTimer : MonoBehaviour
     public void SetTimeLeft(float sec)
     {
         timeLeft = sec;
+    }
+
+    public void PauseTimerForDuration(float duration)
+    {
+        StartCoroutine(PauseTimerCoroutine(duration));
+    }
+
+    private IEnumerator PauseTimerCoroutine(float duration)
+    {
+        float originalTimeLeft = timeLeft;
+        timeLeft = 0f; // Pause the timer
+
+        // Update the timer display on the UI
+        UpdateTimerText();
+
+        yield return new WaitForSeconds(duration);
+
+        timeLeft = originalTimeLeft; // Resume the timer
+        UpdateTimerText();
     }
 
     void UpdateTimerText()
