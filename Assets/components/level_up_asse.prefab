@@ -516,6 +516,7 @@ GameObject:
   - component: {fileID: 7635735292967796794}
   - component: {fileID: 9155452734064755589}
   - component: {fileID: 6218238514812835736}
+  - component: {fileID: 6063245941582966708}
   m_Layer: 0
   m_Name: continue_buton
   m_TagString: button
@@ -639,6 +640,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: massege
   animationDuration: 0.2
+--- !u!114 &6063245941582966708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2818825260252143042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93f695bb7e41c3a49a620a7d003fb590, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverColor: {r: 0.729, g: 0.729, b: 0.729, a: 1}
 --- !u!1 &3035141641649293158
 GameObject:
   m_ObjectHideFlags: 0
@@ -1104,6 +1118,7 @@ GameObject:
   - component: {fileID: 7836435778815259688}
   - component: {fileID: 5882810351105457160}
   - component: {fileID: 7093036933641006931}
+  - component: {fileID: 7093648892682654530}
   m_Layer: 0
   m_Name: select_button
   m_TagString: button
@@ -1227,6 +1242,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: select_level
   animationDuration: 0.2
+--- !u!114 &7093648892682654530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5082423645651895583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93f695bb7e41c3a49a620a7d003fb590, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverColor: {r: 0.729, g: 0.729, b: 0.729, a: 1}
 --- !u!1 &5515240878209990565
 GameObject:
   m_ObjectHideFlags: 0
