@@ -490,7 +490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c933f3f7bb560e64a8ac356f978c9b56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: massege
+  sceneToLoad: settings
   animationDuration: 0.2
 --- !u!1 &8432627967053603792
 GameObject:
