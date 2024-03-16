@@ -42,8 +42,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     // Game data
-    public int currentStage = 1;
-    public int lastToOpen = 1;
+    public int currentStage = 0;
+    public int lastToOpen = 0;
 
     public StageData[] stages = new StageData[30];
     public RoomData[] rooms = new RoomData[8];
@@ -119,10 +119,11 @@ public class GameManager : MonoBehaviour
         if (currentStage + 1 < stages.Length)
         {
             stages[currentStage + 1].isOpen = true;
-            if (currentStage + 1 > lastToOpen)
+            if (currentStage == lastToOpen)
             {
                 lastToOpen = currentStage + 1;
             }
+
             if (currentStage + 1 == 2)// Open a room after completing level 2
             {
                 rooms[1].isOpen = true;

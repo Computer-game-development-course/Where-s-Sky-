@@ -12,7 +12,7 @@ public class UpdateCoins : MonoBehaviour
     void Update()
     {
         coins = GameManager.Instance.GettotalCoins();
-        UpdateTimerText();
+        UpdateText();
 
         // Check for mouse button (left click) press
         if (Input.GetMouseButtonDown(0))
@@ -23,14 +23,17 @@ public class UpdateCoins : MonoBehaviour
             // Check if the mouse click is over this object's collider
             if (GetComponent<Collider2D>().OverlapPoint(mousePos))
             {
-                // Start the scale animation and scene change coroutine
-                SceneManager.LoadScene(sceneToLoad);
+                if (!string.IsNullOrEmpty(sceneToLoad))
+                {
+                    // Start the scale animation and scene change coroutine
+                    SceneManager.LoadScene(sceneToLoad);
+                }
             }
         }
     }
 
 
-    void UpdateTimerText()
+    void UpdateText()
     {
 
         // This will find the TextMeshPro component among the children of time_visual

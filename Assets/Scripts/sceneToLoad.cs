@@ -62,9 +62,13 @@ public class AssetClick : MonoBehaviour
         {
             if (sceneToLoad.Equals("room1"))
             {
-                if (gameObject.name.Equals("play_button") || gameObject.name.Equals("continue_buton") || gameObject.name.Equals("replay_button"))
+                if (gameObject.name.Equals("continue_buton"))
                 {
                     GameManager.Instance.currentStage = GameManager.Instance.lastToOpen;
+                    GameManager.Instance.InittTime();
+                }
+                else if (gameObject.name.Equals("replay_button"))
+                {
                     GameManager.Instance.InittTime();
                 }
                 else
