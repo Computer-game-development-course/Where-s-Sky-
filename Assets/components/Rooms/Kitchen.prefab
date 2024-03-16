@@ -4811,16 +4811,6 @@ PolygonCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD:Assets/Scenes/room1.unity
-  m_GameObject: {fileID: 771904629661492839}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93f695bb7e41c3a49a620a7d003fb590, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hoverColor: {r: 0.729, g: 0.729, b: 0.729, a: 1}
---- !u!1001 &7060826393628507100
-=======
   m_GameObject: {fileID: 3881444298937432401}
   m_Enabled: 1
   m_Density: 1
@@ -5092,7 +5082,6 @@ Transform:
   m_PrefabInstance: {fileID: 3447054821915154369}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6134234682018028107
->>>>>>> TDS-28-FeaturesBar:Assets/components/Rooms/Kitchen.prefab
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2

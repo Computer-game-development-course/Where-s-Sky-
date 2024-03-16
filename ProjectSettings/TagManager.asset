@@ -3,28 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - button
-  - background
-  - dynamic
-  - lock
-  - star
-  - cat
-  - EDGE
-  - drop
-  - DEL
-<<<<<<< HEAD
-  - Cube
-  - enemy
-  - Audio
-=======
-  - Timer
-  - Room
-  - Map
-  - MapRoom
-  - Dynamic
-  - MapRoomCollider
->>>>>>> TDS-28-FeaturesBar
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -61,19 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Background
-    uniqueID: 3947353271
-    locked: 0
-  - name: StaticItem
-    uniqueID: 1546489083
-    locked: 0
-  - name: Cat
-    uniqueID: 2395377803
-    locked: 0
-  - name: DynamicItem
-    uniqueID: 284585269
-    locked: 0
-  - name: Buttons
-    uniqueID: 3670671761
     locked: 0
