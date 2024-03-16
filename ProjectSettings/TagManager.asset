@@ -13,6 +13,7 @@ TagManager:
   - EDGE
   - drop
   - DEL
+  - Timer
   layers:
   - Default
   - TransparentFX

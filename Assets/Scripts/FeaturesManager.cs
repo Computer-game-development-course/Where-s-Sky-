@@ -1,50 +1,42 @@
 using UnityEngine;
 using System.Collections;
+using TMPro;
 
 public class FeaturesManager : MonoBehaviour
 {
-    private GameTimer gameTimer;
-    private bool isHourglassActive = false;
+    // private GameTimer gameTimer;
+    private bool isFeatureActive = false;
     [SerializeField] string featureName;
     [SerializeField] int amount;
-    [SerializeField] float animationDuration = 0.2f;
-    public float moveDistance = 1.0f; // How far the arrow moves
-    public float moveSpeed = 1.0f; // Speed of the movement
+    [SerializeField] TextMeshPro amountText;
 
-    public SpriteRenderer RedArrorDisplay; // RedArrorDisplay.enabled
     private Vector3 originalScale;
+    private float animationDuration = 0.2f;
 
     void Start()
     {
-        gameTimer = FindObjectOfType<GameTimer>();
+        // gameTimer = FindObjectOfType<GameTimer>();
+
+        //amount = GameManager.Instance.getFeatureAmount(featureName);
+        amountText.text = amount.ToString();
+
         originalScale = transform.localScale;
-        amount = GameManager.Instance.getFeatureAmount(featureName);
     }
 
     void Update()
     {
-        // Check for mouse button (left click) press
         if (Input.GetMouseButtonDown(0))
         {
-            // Convert mouse position to world coordinates
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            // Check if the mouse click is over this object's collider
             if (GetComponent<Collider2D>().OverlapPoint(mousePos))
             {
-                // Start the scale animation and scene change coroutine
                 StartCoroutine(AnimateAndChangeScene());
-
                 if (amount > 0)
                 {
-                    GameManager.Instance.RemoveFeature(featureName);
+                    //GameManager.Instance.RemoveFeature(featureName);
                     ActivateFeature();
                 }
-                else if (!(RedArrorDisplay.enabled))
-                {
-                    StartCoroutine(ShowRedArrow());
-                }
-
             }
         }
     }
@@ -71,103 +63,80 @@ public class FeaturesManager : MonoBehaviour
 
     public void ActivateHourglassPowerUp()
     {
-        if (!isHourglassActive)
+        if (!isFeatureActive)
         {
-            isHourglassActive = true;
-            gameTimer.PauseTimerForDuration(10f); // Pause timer for 10 seconds
+            isFeatureActive = true;
+            // gameTimer.PauseTimerForDuration(10f); // Pause timer for 10 seconds
             Invoke(nameof(DeactivateHourglass), 10f); // Deactivate after 10 seconds
         }
     }
 
     private void DeactivateHourglass()
     {
-        isHourglassActive = false;
+        isFeatureActive = false;
     }
 
     public void ActivateSnackPowerUp()
     {
         // If cat in the current room player won
-        amount = GameManager.Instance.getFeatureAmount(featureName);
-
-
+        amount = 0;
     }
 
     public void ActivateX2PowerUp()
     {
         // Double the coins earned
-        amount = GameManager.Instance.getFeatureAmount(featureName);
+        // float timeLeft = GameManager.Instance.timeLeft;
+        // LevelCompletion levelCompletion = FindObjectOfType<LevelCompletion>();
+        // levelCompletion.x2Active = true;
+        amount = 0;
     }
 
     public void ActivateBallPowerUp()
     {
         // If cat in the current room player won
-        amount = GameManager.Instance.getFeatureAmount(featureName);
-    }
-    IEnumerator ShowRedArrow()
-    {
-        RedArrorDisplay.enabled = true;
-
-        float timer = 0f;
-        float direction = 1f; // Start moving right
-
-        // Calculate the original position
-        Vector3 originalPosition = RedArrorDisplay.transform.position;
-        Vector3 targetPosition = originalPosition;
-
-        while (timer < 2f)
-        {
-            // Update the timer by the elapsed time since last frame
-            timer += Time.deltaTime;
-
-            // Move the arrow back and forth by changing its target position based on the direction
-            if (direction > 0) // Moving right
-            {
-                targetPosition = originalPosition + Vector3.right * moveDistance;
-            }
-            else // Moving left
-            {
-                targetPosition = originalPosition + Vector3.left * moveDistance;
-            }
-
-            // Move towards the target position
-            RedArrorDisplay.transform.position = Vector3.MoveTowards(RedArrorDisplay.transform.position, targetPosition, moveSpeed * Time.deltaTime);
-
-            // If the arrow reaches the target position, change direction
-            if (RedArrorDisplay.transform.position == targetPosition)
-            {
-                direction *= -1; // Change direction
-                originalPosition = RedArrorDisplay.transform.position; // Update the original position for the new direction
-            }
-
-            yield return null;
-        }
-
-        RedArrorDisplay.enabled = false; // Disable the RedArrorDisplay after 5 seconds
+        // amount = GameManager.Instance.getFeatureAmount(featureName);
+        amount = 0;
     }
 
     IEnumerator AnimateAndChangeScene()
     {
-        // Target scale is set to 90% of the original scale
         Vector3 targetScale = originalScale * 0.9f;
 
-        // Scale down the GameObject to the target scale
         float timer = 0;
         while (timer <= animationDuration / 2)
         {
             transform.localScale = Vector3.Lerp(originalScale, targetScale, timer / (animationDuration / 2));
             timer += Time.deltaTime;
-            yield return null; // Wait for the next frame
+            yield return null;
         }
 
-        // Reset timer for scaling up
         timer = 0;
 
-        // Scale the GameObject back to its original scale
         while (timer <= animationDuration / 2)
         {
             transform.localScale = Vector3.Lerp(targetScale, originalScale, timer / (animationDuration / 2));
             timer += Time.deltaTime;
-            yield return null; // Wait for the next frame
+            yield return null;
         }
+
     }
+
+    // public void PauseTimerForDuration(float duration)
+    // {
+    //     StartCoroutine(PauseTimerCoroutine(duration));
+    // }
+
+    // private IEnumerator PauseTimerCoroutine(float duration)
+    // {
+    //     float originalTimeLeft = timeLeft;
+    //     timeLeft = 0f; // Pause the timer
+
+    //     // Update the timer display on the UI
+    //     UpdateTimerText();
+
+    //     yield return new WaitForSeconds(duration);
+
+    //     timeLeft = originalTimeLeft; // Resume the timer
+    //     UpdateTimerText();
+    // }
 }

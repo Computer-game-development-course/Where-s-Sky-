@@ -37,7 +37,7 @@ public class buyFeature : MonoBehaviour
                 // Start the scale animation and scene change coroutine
                 StartCoroutine(AnimateAndChangeScene());
 
-                int money = GameManager.Instance.GettotalCoins();
+                int money = GameManager.Instance.GetTotalCoins();
                 if (money > cost)
                 {
                     GameManager.Instance.RemoveCoins(cost);

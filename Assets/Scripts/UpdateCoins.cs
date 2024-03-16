@@ -11,7 +11,7 @@ public class UpdateCoins : MonoBehaviour
 
     void Update()
     {
-        coins = GameManager.Instance.GettotalCoins();
+        coins = GameManager.Instance.GetTotalCoins();
         UpdateTimerText();
 
         // Check for mouse button (left click) press
