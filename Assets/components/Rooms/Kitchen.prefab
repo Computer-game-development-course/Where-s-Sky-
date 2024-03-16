@@ -4782,19 +4782,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-<<<<<<< HEAD:Assets/Scenes/room1.unity
-    - targetCorrespondingSourceObject: {fileID: 7919434880954160222, guid: d7a5a5b66da9fd84e96d8a6a9dc7075f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 771904629661492840}
-  m_SourcePrefab: {fileID: 100100000, guid: d7a5a5b66da9fd84e96d8a6a9dc7075f, type: 3}
---- !u!1 &771904629661492839 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7919434880954160222, guid: d7a5a5b66da9fd84e96d8a6a9dc7075f, type: 3}
-  m_PrefabInstance: {fileID: 771904629661492838}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &771904629661492840
-MonoBehaviour:
-=======
     - targetCorrespondingSourceObject: {fileID: 1876821399770607248, guid: 1433d8792496047a291414217053f7e6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5907345657132611716}
@@ -4806,7 +4793,6 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
 --- !u!60 &5907345657132611716
 PolygonCollider2D:
->>>>>>> TDS-28-FeaturesBar:Assets/components/Rooms/Kitchen.prefab
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
