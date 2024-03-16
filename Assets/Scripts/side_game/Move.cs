@@ -9,6 +9,17 @@ public class Move : MonoBehaviour
     [Tooltip("The speed at which the GameObject moves")]
     [SerializeField] float speed = 20f;
 
+    [SerializeField] Vector3 initialPosition;
+    [SerializeField] int moneyEarned = 10;
+
+    private MoneyManager moneyManager;
+
+    private void Start()
+    {
+        initialPosition = transform.position;
+        moneyManager = FindObjectOfType<MoneyManager>();
+    }
+
     void Update()
     {
         // If the left arrow key is held down, move the GameObject to the left.
@@ -46,22 +57,27 @@ public class Move : MonoBehaviour
         // Check if the object that entered the trigger has the tag "enemy".
         if (other.tag == "enemy")
         {
-            // Destroy the enemy GameObject.
-            Destroy(other.gameObject);
-            // Also destroy this GameObject.
-            Destroy(this.gameObject);
-            // Then load the "try again" scene to presumably let the player try again.
-            SceneManager.LoadScene("try again");
+            transform.position = initialPosition;
         }
+
         // Check if the object that entered the trigger has the tag "Finish".
         else if (other.tag == "Finish")
         {
-            // Destroy the finish GameObject.
-            Destroy(other.gameObject);
-            // Also destroy this GameObject.
-            Destroy(this.gameObject);
-            // Then load the "win" scene to show that the player has won.
-            SceneManager.LoadScene("win");
+            moneyManager.WonMoney();
+            GameManager.Instance.AddCoins(moneyEarned);
+            Transform child = transform.GetChild(0);
+            SpriteRenderer sr = child.GetComponent<SpriteRenderer>();
+            if (sr != null)
+            {
+                StartCoroutine(ToggleSpriteRenderer(sr));
+            }
         }
+    }
+
+    private IEnumerator ToggleSpriteRenderer(SpriteRenderer sr)
+    {
+        sr.enabled = true;
+        yield return new WaitForSeconds(1.2f); // Wait for 0.2 seconds
+        sr.enabled = false;
     }
 }

@@ -556,7 +556,7 @@ GameObject:
   - component: {fileID: 889408959}
   - component: {fileID: 889408958}
   m_Layer: 0
-  m_Name: replay
+  m_Name: replay_button
   m_TagString: button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

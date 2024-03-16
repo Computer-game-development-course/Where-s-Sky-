@@ -587,7 +587,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentStage: 0
-  lastToOpen: 1
+  lastToOpen: 0
   stages:
   - isOpen: 1
     stars: 0
