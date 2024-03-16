@@ -14,6 +14,11 @@ TagManager:
   - drop
   - DEL
   - Timer
+  - Room
+  - Map
+  - MapRoom
+  - Dynamic
+  - MapRoomCollider
   layers:
   - Default
   - TransparentFX
@@ -51,15 +56,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Item
-    uniqueID: 340038559
+  - name: Background
+    uniqueID: 3947353271
+    locked: 0
+  - name: StaticItem
+    uniqueID: 1546489083
     locked: 0
   - name: Cat
     uniqueID: 2395377803
     locked: 0
-  - name: Woman
-    uniqueID: 755317109
+  - name: DynamicItem
+    uniqueID: 284585269
     locked: 0
-  - name: Background
-    uniqueID: 3947353271
+  - name: Buttons
+    uniqueID: 3670671761
     locked: 0

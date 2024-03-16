@@ -15,13 +15,9 @@ public class StartLevel : MonoBehaviour
             if (GetComponent<Collider2D>().OverlapPoint(mousePos))
             {
                 AnimateAndChangeScene();
-                if (levelNumber < 0)
+                if (levelNumber >= 0)
                 {
-                    GameManager.Instance.loadNextLevel();
-                }
-                else
-                {
-                    GameManager.Instance.loadLevel(levelNumber);
+                    GameManager.Instance.LoadLevel(levelNumber);
                 }
             }
         }

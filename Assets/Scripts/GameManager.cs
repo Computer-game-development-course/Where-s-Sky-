@@ -15,16 +15,6 @@ public class Level
     public int time;
 }
 
-// [System.Serializable]
-// public class Room
-// {
-//     public int id;
-//     public bool isOpen = false;
-//     public bool isCatThere = false;
-//     public bool isAvailable = false;
-//     public int opensAtLevel = 0;
-// }
-
 [System.Serializable]
 public class RoomScene
 {
@@ -34,58 +24,17 @@ public class RoomScene
     public int opensAtLevel = 0;
 }
 
-
-// [System.Serializable]
-// public class StageData
-// {
-//     public bool isOpen = false;
-//     public int stars = 0;
-//     public float timeLimit = 0f;
-// }
-
-// [System.Serializable]
-// public class RoomData
-// {
-//     public bool isOpen = false;
-// }
-
-// [System.Serializable]
-// public class Hourglass
-// {
-//     public int amount = 0;
-// }
-
-// [System.Serializable]
-// public class Snack
-// {
-//     public int amount = 0;
-// }
-
-// [System.Serializable]
-// public class X2
-// {
-//     public int amount = 0;
-// }
-
-// [System.Serializable]
-// public class Ball
-// {
-//     public int amount = 0;
-// }
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     private const int levelsCount = 30;
     private const int roomsCount = 8;
     public Level[] levels = new Level[levelsCount];
-    //public Room[] rooms = new Room[roomsCount];
-
     public RoomScene[] roomScenes = new RoomScene[roomsCount];
-
     public int coins = 0;
     public Level currentLevel = null;
-
     private const int timePerRoom = 10;
+    public int previousLevelMoneyEarned = 0;
 
     private void Awake()
     {
@@ -94,60 +43,28 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
 
-            // levels[0].isOpen = true;
-            // rooms[0].isAvailable = true;
-            // int i = 0;
-            // foreach (Room room in rooms)
-            // {
-            //     room.id = i;
-            //     room.opensAtLevel = i == 0 ? 1 : (levelsCount / roomsCount) * i;
-            //     i++;
-            // }
-
-            // i = 0;
-            // foreach (Level level in levels)
-            // {
-            //     level.id = i;
-            //     int levelRoomsCount = ((i + 1) / (levelsCount / roomsCount)) + 1;
-            //     level.rooms = new Room[levelRoomsCount];
-            //     int j = 0;
-            //     foreach (Room room in rooms)
-            //     {
-            //         if (room.opensAtLevel <= i)
-            //         {
-            //             level.rooms[j++] = room;
-            //         }
-            //     }
-            //     level.time = timePerRoom * level.rooms.Length;
-            //     i++;
-            // }
-            int i = 0;
-            for (i = 0; i < roomsCount; i++)
+            string[] roomNames = { "EntryRoom", "Bathroom", "Backyard", "Bedroom", "Kitchen", "LaundryRoom", "LivingRoom", "OfficeRoom" };
+            for (int i = 0; i < roomsCount; i++)
             {
-                roomScenes[i].sceneName = $"room{(i + 1)}";
+                roomScenes[i].sceneName = roomNames[i];
                 roomScenes[i].opensAtLevel = i == 0 ? 0 : (levelsCount / roomsCount) * i - 1;
             }
 
-            i = 0;
-            foreach (Level level in levels)
+            for (int i = 0; i < levelsCount; i++)
             {
-                level.id = i;
+                levels[i].id = i;
                 int levelRoomsCount = ((i + 1) / (levelsCount / roomsCount)) + 1;
-                level.rooms = new String[levelRoomsCount];
-                int j = 0;
-                foreach (RoomScene room in roomScenes)
+                levels[i].rooms = new String[levelRoomsCount];
+                for (int j = 0; j < roomsCount; j++)
                 {
-                    if (room.opensAtLevel <= i)
+                    if (roomScenes[j].opensAtLevel <= i)
                     {
-                        level.rooms[j++] = room.sceneName;
+                        levels[i].rooms[j] = roomScenes[j].sceneName;
                     }
                 }
-                level.time = timePerRoom * level.rooms.Length;
-                i++;
+                levels[i].time = timePerRoom * levels[i].rooms.Length;
             }
-
             levels[0].isOpen = true;
-            currentLevel = levels[0];
         }
         else
         {
@@ -155,25 +72,37 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void loadLevel(int level)
+    public void LoadLevel(int levelId)
     {
-        currentLevel = levels[level];
-        roomScenes[0].isOpen = true;
-        SceneManager.LoadScene(currentLevel.rooms[0]);
+        levels[levelId].isOpen = true;
+        currentLevel = levels[levelId];
+        SceneManager.LoadScene("Level");
     }
 
-    public void loadNextLevel()
+    public void LoadNextLevel()
     {
         currentLevel = levels[currentLevel.id + 1];
-        LevelManager.Instance.destroyLevel();
-        roomScenes[0].isOpen = true;
-        SceneManager.LoadScene(currentLevel.rooms[0]);
+        SceneManager.LoadScene("Level");
     }
 
-    public void setLevelScore(int level, int stars, bool isCompleted)
+    public void LoadLevelsMenu()
+    {
+        SceneManager.LoadScene("select_level");
+    }
+
+    public void setLevelScore(int level, int stars, bool isCompleted, int moneyEarned)
     {
         levels[level].stars = Math.Max(stars, levels[level].stars);
         levels[level].isCompleted = isCompleted;
+        currentLevel = levels[level];
+        previousLevelMoneyEarned = moneyEarned;
+        AddCoins(moneyEarned);
+
+        if (level < levelsCount - 1)
+        {
+            levels[level + 1].isOpen = true;
+        }
+        SceneManager.LoadScene("PlayerWon");
     }
 
     public int GetTotalCoins()
@@ -259,13 +188,4 @@ public class GameManager : MonoBehaviour
             coins += 0;
         }
     }
-
-    // Method to open rooms
-    // public void OpenRoom(int roomIndex)
-    // {
-    //     if (roomIndex >= 0 && roomIndex < rooms.Length)
-    //     {
-    //         rooms[roomIndex].isOpen = true;
-    //     }
-    // }
 }

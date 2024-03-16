@@ -1,67 +1,92 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
+
+[System.Serializable]
+public class Room
+{
+    public GameObject room;
+    public bool isCatThere;
+    public bool isRoomOpen;
+    public bool isRoomAvailable;
+}
 
 public class LevelManager : MonoBehaviour
 {
-    public static LevelManager Instance;
     public Level level;
+    [SerializeField] GameObject[] roomObjects;
+
     [Tooltip("Total time in seconds the player has to find the cat.")]
     [SerializeField] private float timeLeft;
     [SerializeField] private float initialTime;
-
-    [Tooltip("Names of the scenes where this object should not be destroyed.")]
-    [SerializeField] string[] persistInScenes;
     [SerializeField] GameObject Timer;
-    [SerializeField] GameObject LevelUpAsset;
-    [SerializeField] GameObject Map;
-
+    [SerializeField] GameObject MapButton;
+    [SerializeField] GameObject MapRoom;
+    [SerializeField] GameObject[] MapRoomsMenu;
+    [SerializeField] GameObject[] MovingArrows;
+    [SerializeField] GameObject Cat;
+    private PolygonCollider2D CatCollider;
+    private Dictionary<string, Room> rooms = new Dictionary<string, Room>();
+    private string currentRoomKey;
+    private string catRoomKey;
     BoxCollider2D mapCollider;
     private FeaturesManager featuresManager;
     private bool isTimerPaused = false;
     private bool isTimerDisplayed = true;
-    private GameObject[] stars;
-
-    void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-
-            level = GameManager.Instance.currentLevel;
-
-            // int levelId = GameManager.Instance.currentLevel;
-            // level = GameManager.Instance.levels[levelId];
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
 
     void Start()
     {
-        Debug.Log("Start LevelManager");
-
         level = GameManager.Instance.currentLevel;
+
+        foreach (GameObject room in roomObjects)
+        {
+            room.SetActive(false);
+            bool isRoomAvailable = false;
+            for (int i = 0; i < level.rooms.Length; i++)
+            {
+                if (room.name == level.rooms[i])
+                {
+                    isRoomAvailable = true;
+                }
+            }
+
+            rooms.Add(room.name, new Room
+            {
+                room = room,
+                isCatThere = false,
+                isRoomOpen = false,
+                isRoomAvailable = isRoomAvailable
+            });
+        }
+
+        placeCatInRoom();
+
+        Room firstRoom = rooms[level.rooms[0]];
+        firstRoom.room.SetActive(true);
+        firstRoom.isRoomOpen = true;
+        currentRoomKey = level.rooms[0];
 
         initialTime = level.time;
         timeLeft = initialTime;
 
         Timer.SetActive(true);
-        LevelUpAsset.SetActive(false);
 
-        mapCollider = Map.GetComponent<BoxCollider2D>();
+        mapCollider = MapButton.GetComponent<BoxCollider2D>();
 
         if (level.rooms.Length > 1)
         {
-            Map.SetActive(true);
+            MapButton.SetActive(true);
         }
         else
         {
-            Map.SetActive(false);
+            MapButton.SetActive(false);
+        }
+
+        if (currentRoomKey == catRoomKey)
+        {
+            Cat.SetActive(true);
         }
     }
 
@@ -86,10 +111,123 @@ public class LevelManager : MonoBehaviour
                     Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                     if (mapCollider.OverlapPoint(mousePos))
                     {
-                        pauseTimer();
-                        hideTimer();
-                        Map.SetActive(false);
-                        SceneManager.LoadScene("map");
+                        openMap();
+                    }
+                    else if (CatCollider.OverlapPoint(mousePos))
+                    {
+                        playerWon();
+                    }
+                }
+            }
+        }
+        else
+        {
+            if (Input.GetMouseButtonDown(0) && MapRoom.activeSelf)
+            {
+                Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+                foreach (GameObject room in MapRoomsMenu)
+                {
+                    if (room != null)
+                    {
+                        GameObject roomCollider = room.transform.Find("RoomCollider").gameObject;
+                        if (roomCollider != null)
+                        {
+                            if (roomCollider.GetComponent<Collider2D>().OverlapPoint(mousePos))
+                            {
+                                Room selectedRoom = rooms[room.name];
+                                if (selectedRoom.isRoomAvailable)
+                                {
+                                    selectedRoom.room.SetActive(true);
+                                    currentRoomKey = room.name;
+                                    MapRoom.SetActive(false);
+                                    MapButton.SetActive(true);
+                                    Timer.SetActive(true);
+                                    isTimerDisplayed = true;
+                                    isTimerPaused = false;
+
+                                    if (currentRoomKey == catRoomKey)
+                                    {
+                                        Cat.SetActive(true);
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private void placeCatInRoom()
+    {
+        string randomRoom = level.rooms[Random.Range(0, level.rooms.Length)];
+
+        Room selectedRoom = rooms[randomRoom];
+        List<GameObject> dynamicObjects = new List<GameObject>();
+        foreach (Transform child in selectedRoom.room.transform)
+        {
+            if (child.tag == "Dynamic")
+            {
+                dynamicObjects.Add(child.gameObject);
+            }
+        }
+
+        if (dynamicObjects.Count > 0)
+        {
+            float catOffset = 0.2f;
+            GameObject selectedFurniture = dynamicObjects[Random.Range(0, dynamicObjects.Count)];
+
+            Vector3 catPosition = selectedFurniture.transform.position;
+            Cat.transform.position = new Vector3(catPosition.x - catOffset, catPosition.y - catOffset, catPosition.z - catOffset);
+
+            float avgFurnitureSize = (selectedFurniture.transform.localScale.x + selectedFurniture.transform.localScale.y + selectedFurniture.transform.localScale.z) / 3;
+            float catSize = avgFurnitureSize * 0.5f;
+            Cat.transform.localScale = new Vector3(catSize, catSize, catSize);
+
+            selectedFurniture.GetComponent<DynamicObjectController>().isCatBehind = true;
+            CatCollider = Cat.GetComponent<PolygonCollider2D>();
+
+            selectedRoom.isCatThere = true;
+            catRoomKey = randomRoom;
+        }
+    }
+
+    private void openMap()
+    {
+        pauseTimer();
+        hideTimer();
+        MapButton.SetActive(false);
+        Cat.SetActive(false);
+
+        Room currentRoom = rooms[currentRoomKey];
+        currentRoom.room.SetActive(false);
+
+        MapRoom.SetActive(true);
+        foreach (GameObject room in MapRoomsMenu)
+        {
+            if (room != null)
+            {
+                bool isOpen = currentRoomKey == room.name;
+                Room roomObject = rooms[room.name];
+                bool isAvailable = roomObject.isRoomAvailable;
+
+                GameObject blackObject = room.transform.Find("black").gameObject;
+                if (blackObject != null)
+                {
+                    blackObject.SetActive(!isAvailable);
+
+                    GameObject lockObject = room.transform.Find("lock").gameObject;
+                    if (lockObject != null)
+                    {
+                        lockObject.SetActive(!isAvailable);
+                    }
+
+                    GameObject roomCollider = room.transform.Find("RoomCollider").gameObject;
+                    if (roomCollider != null)
+                    {
+                        roomCollider.SetActive(isAvailable);
                     }
                 }
             }
@@ -105,7 +243,6 @@ public class LevelManager : MonoBehaviour
             timerText.text = $"00:{timeLeft:00}";
         }
     }
-
 
     public void pauseTimer()
     {
@@ -139,80 +276,30 @@ public class LevelManager : MonoBehaviour
         pauseTimer();
         hideTimer();
 
-        GameManager.Instance.currentLevel.isCompleted = true;
-
-        stars = new GameObject[6];
-        stars[0] = LevelUpAsset.transform.Find("star1").gameObject;
-        stars[1] = LevelUpAsset.transform.Find("star2").gameObject;
-        stars[2] = LevelUpAsset.transform.Find("star3").gameObject;
-        stars[3] = LevelUpAsset.transform.Find("frameOfAStar1").gameObject;
-        stars[4] = LevelUpAsset.transform.Find("frameOfAStar2").gameObject;
-        stars[5] = LevelUpAsset.transform.Find("frameOfAStar3").gameObject;
-
-        LevelUpAsset.SetActive(true);
-        calculateScore();
-
-        if (GameManager.Instance.currentLevel.id < GameManager.Instance.levels.Length - 1)
-        {
-            GameManager.Instance.levels[GameManager.Instance.currentLevel.id + 1].isOpen = true;
-        }
-
-    }
-
-    private void calculateScore()
-    {
         float ratio = timeLeft / initialTime;
-
         int starsEarned = 0;
-
         if (ratio < 0.25f)
         {
-            stars[0].SetActive(true);
-            stars[1].SetActive(false);
-            stars[2].SetActive(false);
             starsEarned = 1;
         }
         else if (ratio >= 0.25f && ratio <= 0.75f)
         {
-            stars[0].SetActive(true);
-            stars[1].SetActive(true);
-            stars[2].SetActive(false);
-
             starsEarned = 2;
         }
         else
         {
-            stars[0].SetActive(true);
-            stars[1].SetActive(true);
-            stars[2].SetActive(true);
-
             starsEarned = 3;
         }
-
-        stars[3].SetActive(true);
-        stars[4].SetActive(true);
-        stars[5].SetActive(true);
-
-        GameManager.Instance.setLevelScore(level.id, starsEarned, true);
-
-        int moneyEarned = (int)(timeLeft * 2);
-        TextMeshPro coinsText = GetComponentInChildren<TextMeshPro>();
-
-        if (coinsText != null)
-        {
-            coinsText.text = moneyEarned.ToString();
-        }
-        GameManager.Instance.AddCoins(moneyEarned);
+        GameManager.Instance.setLevelScore(level.id, starsEarned, true, (int)timeLeft * 2);
     }
 
-    public void destroyLevel()
+    void OnDestroy()
     {
         initialTime = 0;
         timeLeft = 0;
         isTimerDisplayed = false;
         isTimerPaused = true;
         Timer.SetActive(false);
-        LevelUpAsset.SetActive(false);
         level = null;
         Debug.Log("Level destroyed");
     }
