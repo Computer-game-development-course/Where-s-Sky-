@@ -19,7 +19,7 @@ public class AudioManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Keep the audio manager across scenes
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -37,9 +37,8 @@ public class AudioManager : MonoBehaviour
         }
         if (!isSFXPlay)
         {
-            isSFXPlay = true;
             SFXSource.clip = catMaw;
-            SFXSource.Play();
+            isSFXPlay = true;
             StartCoroutine(PlaySFXRandomly());
         }
 
@@ -51,12 +50,8 @@ public class AudioManager : MonoBehaviour
     {
         while (isSFXPlay)
         {
-            yield return new WaitForSeconds(Random.Range(5, 11)); // Wait for 5 to 10 seconds randomly
-            if (isSFXPlay) // Check again in case it changed while waiting
-            {
-                SFXSource.clip = catMaw;
-                SFXSource.Play();
-            }
+            SFXSource.Play();
+            yield return new WaitForSeconds(Random.Range(10, 16));
         }
     }
 
