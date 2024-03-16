@@ -136,6 +136,10 @@ PrefabInstance:
       value: Main Camera
       objectReference: {fileID: 0}
     - target: {fileID: 5309203015126049725, guid: d7a5a5b66da9fd84e96d8a6a9dc7075f, type: 3}
+      propertyPath: MapRoom
+      value: 
+      objectReference: {fileID: 974263135}
+    - target: {fileID: 5309203015126049725, guid: d7a5a5b66da9fd84e96d8a6a9dc7075f, type: 3}
       propertyPath: leftLimit
       value: -0.1
       objectReference: {fileID: 0}
@@ -360,6 +364,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: d0d73434f23ec4d379346e262125a62e, type: 3}
+--- !u!1 &974263135 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8171274214483075501, guid: d0d73434f23ec4d379346e262125a62e, type: 3}
+  m_PrefabInstance: {fileID: 974263134}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1589141867
 GameObject:
   m_ObjectHideFlags: 0

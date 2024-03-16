@@ -25,7 +25,6 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject MapButton;
     [SerializeField] GameObject MapRoom;
     [SerializeField] GameObject[] MapRoomsMenu;
-    [SerializeField] GameObject[] MovingArrows;
     [SerializeField] GameObject Cat;
     private PolygonCollider2D CatCollider;
     private Dictionary<string, Room> rooms = new Dictionary<string, Room>();

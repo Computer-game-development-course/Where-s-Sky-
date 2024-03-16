@@ -4,6 +4,7 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField] GameObject leftArrow;
     [SerializeField] GameObject rightArrow;
+    [SerializeField] GameObject MapRoom = null;
     [SerializeField] float cameraMoveSpeed = 5.0f;
     [SerializeField] float leftLimit = 0.2f;
     [SerializeField] float rightLimit = 5.2f;
@@ -13,8 +14,16 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        HandleCameraMovement();
-        UpdateArrowVisibilityAndEffect();
+        if (MapRoom != null && MapRoom.activeSelf)
+        {
+            leftArrow.SetActive(false);
+            rightArrow.SetActive(false);
+        }
+        else
+        {
+            HandleCameraMovement();
+            UpdateArrowVisibilityAndEffect();
+        }
     }
 
     private void HandleCameraMovement()

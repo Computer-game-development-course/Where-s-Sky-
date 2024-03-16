@@ -110,12 +110,6 @@ public class GameManager : MonoBehaviour
         return coins;
     }
 
-    public void newRoomOpen()
-    {
-        int i = 0;
-        i++;
-    }
-
     public void AddCoins(int amount)
     {
         coins += amount;
@@ -124,68 +118,5 @@ public class GameManager : MonoBehaviour
     public void RemoveCoins(int amount)
     {
         coins -= amount;
-    }
-
-    public void AddFeature(string s)
-    {
-        if (s.Equals("hourglass"))
-        {
-            coins += 0;
-        }
-        else if (s.Equals("snack"))
-        {
-            coins += 0;
-        }
-        else if (s.Equals("x2"))
-        {
-            coins += 0;
-        }
-        else if (s.Equals("ball"))
-        {
-            coins += 0;
-        }
-    }
-
-    public int getFeatureAmount(string s)
-    {
-        if (s.Equals("hourglass"))
-        {
-            return coins;
-
-        }
-        else if (s.Equals("snack"))
-        {
-            return coins;
-        }
-        else if (s.Equals("x2"))
-        {
-            return coins;
-        }
-        else if (s.Equals("ball"))
-        {
-            return coins;
-        }
-
-        return 0;
-    }
-
-    public void RemoveFeature(string s)
-    {
-        if (s.Equals("hourglass"))
-        {
-            coins += 0;
-        }
-        else if (s.Equals("snack"))
-        {
-            coins += 0;
-        }
-        else if (s.Equals("x2"))
-        {
-            coins += 0;
-        }
-        else if (s.Equals("ball"))
-        {
-            coins += 0;
-        }
     }
 }

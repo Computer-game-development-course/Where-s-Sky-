@@ -41,7 +41,7 @@ public class buyFeature : MonoBehaviour
                 if (money > cost)
                 {
                     GameManager.Instance.RemoveCoins(cost);
-                    GameManager.Instance.AddFeature(featureName);
+                    //GameManager.Instance.AddFeature(featureName);
                 }
                 else
                 {

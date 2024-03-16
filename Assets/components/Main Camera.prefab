@@ -113,6 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftArrow: {fileID: 3779945762260531704}
   rightArrow: {fileID: 8432627967053603792}
+  MapRoom: {fileID: 0}
   cameraMoveSpeed: 5
   leftLimit: 2.5
   rightLimit: 8.8
@@ -331,8 +332,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -624295535
+  m_SortingLayer: 5
   m_SortingOrder: 5
   m_Sprite: {fileID: 1866807544, guid: 59019243f3a843146a00d942f0d84416, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -820,8 +821,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -624295535
+  m_SortingLayer: 5
   m_SortingOrder: 5
   m_Sprite: {fileID: 962809338, guid: 59019243f3a843146a00d942f0d84416, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
