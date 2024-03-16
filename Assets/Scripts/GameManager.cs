@@ -1,62 +1,40 @@
 using UnityEngine;
+using System;
+using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 [System.Serializable]
-public class StageData
+public class Level
 {
+    public int id;
     public bool isOpen = false;
     public int stars = 0;
-    public float timeLimit = 0f;
+    public String[] rooms;
+    public bool isCompleted = false;
+    public int time;
 }
 
 [System.Serializable]
-public class RoomData
+public class RoomScene
 {
     public bool isOpen = false;
+    public string sceneName;
+    public bool isCatThere = false;
+    public int opensAtLevel = 0;
 }
 
-[System.Serializable]
-public class Hourglass
-{
-    public int amount = 0;
-}
-
-[System.Serializable]
-public class Snack
-{
-    public int amount = 0;
-}
-
-[System.Serializable]
-public class X2
-{
-    public int amount = 0;
-}
-
-[System.Serializable]
-public class Ball
-{
-    public int amount = 0;
-}
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-
-    // Game data
-    public int currentStage = 0;
-    public int lastToOpen = 0;
-
-    public StageData[] stages = new StageData[30];
-    public RoomData[] rooms = new RoomData[8];
-    public Hourglass hourglass;
-    public Snack snack;
-    public X2 x2;
-    public Ball ball;
-    public int totalCoins = 0;
-
-    public float timeLeft = 40f; // Total time for the game (in seconds)
-    public float initial_time = 40f;
-
-    public bool isReset = false;
+    private const int levelsCount = 30;
+    private const int roomsCount = 8;
+    public Level[] levels = new Level[levelsCount];
+    public RoomScene[] roomScenes = new RoomScene[roomsCount];
+    public int coins = 0;
+    public Level currentLevel = null;
+    private const int timePerRoom = 10;
+    public int previousLevelMoneyEarned = 0;
 
     private void Awake()
     {
@@ -65,9 +43,28 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
 
-            // Initialize game data
-            stages[0].isOpen = true; // Open the first stage
-            rooms[0].isOpen = true; // Open the first stage
+            string[] roomNames = { "EntryRoom", "Bathroom", "Backyard", "Bedroom", "Kitchen", "LaundryRoom", "LivingRoom", "OfficeRoom" };
+            for (int i = 0; i < roomsCount; i++)
+            {
+                roomScenes[i].sceneName = roomNames[i];
+                roomScenes[i].opensAtLevel = i == 0 ? 0 : (levelsCount / roomsCount) * i - 1;
+            }
+
+            for (int i = 0; i < levelsCount; i++)
+            {
+                levels[i].id = i;
+                int levelRoomsCount = ((i + 1) / (levelsCount / roomsCount)) + 1;
+                levels[i].rooms = new String[levelRoomsCount];
+                for (int j = 0; j < roomsCount; j++)
+                {
+                    if (roomScenes[j].opensAtLevel <= i)
+                    {
+                        levels[i].rooms[j] = roomScenes[j].sceneName;
+                    }
+                }
+                levels[i].time = timePerRoom * levels[i].rooms.Length;
+            }
+            levels[0].isOpen = true;
         }
         else
         {
@@ -75,159 +72,51 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ResetTime()
+    public void LoadLevel(int levelId)
     {
-        isReset = true;
-        initial_time = stages[currentStage].timeLimit;
-        timeLeft = stages[currentStage].timeLimit;
+        levels[levelId].isOpen = true;
+        currentLevel = levels[levelId];
+        SceneManager.LoadScene("Level");
     }
 
-    public void InittTime()
+    public void LoadNextLevel()
     {
-        isReset = false;
-        initial_time = stages[currentStage].timeLimit;
-        timeLeft = stages[currentStage].timeLimit;
+        currentLevel = levels[currentLevel.id + 1];
+        SceneManager.LoadScene("Level");
     }
 
-    public float GetInitialTime()
+    public void LoadLevelsMenu()
     {
-        return initial_time;
+        SceneManager.LoadScene("select_level");
     }
 
-    public float GetTimeLeft()
+    public void setLevelScore(int level, int stars, bool isCompleted, int moneyEarned)
     {
-        return timeLeft;
-    }
+        levels[level].stars = Math.Max(stars, levels[level].stars);
+        levels[level].isCompleted = isCompleted;
+        currentLevel = levels[level];
+        previousLevelMoneyEarned = moneyEarned;
+        AddCoins(moneyEarned);
 
-    public void SetInitialTime(float sec)
-    {
-        initial_time = sec;
-    }
-
-    public void SetTimeLeft(float sec)
-    {
-        timeLeft = sec;
-    }
-
-    public int GettotalCoins()
-    {
-        return totalCoins;
-    }
-
-    public void OpenNextStage()
-    {
-        if (currentStage + 1 < stages.Length)
+        if (level < levelsCount - 1)
         {
-            stages[currentStage + 1].isOpen = true;
-            if (currentStage == lastToOpen)
-            {
-                lastToOpen = currentStage + 1;
-            }
-
-            if (currentStage + 1 == 2)// Open a room after completing level 2
-            {
-                rooms[1].isOpen = true;
-            }
-            else if (currentStage + 1 == 4)// Open a room after completing level 4
-            {
-                rooms[2].isOpen = true;
-            }
-            else if (currentStage + 1 == 8)// Open a room after completing level 8
-            {
-                rooms[3].isOpen = true;
-            }
-            else if (currentStage + 1 == 12)// Open a room after completing level 12
-            {
-                rooms[4].isOpen = true;
-            }
-            else if (currentStage + 1 == 17)// Open a room after completing level 17
-            {
-                rooms[5].isOpen = true;
-            }
-            else if (currentStage + 1 == 21)// Open a room after completing level 21
-            {
-                rooms[6].isOpen = true;
-            }
-            else if (currentStage + 1 == 25)// Open a room after completing level 25
-            {
-                rooms[7].isOpen = true;
-            }
+            levels[level + 1].isOpen = true;
         }
+        SceneManager.LoadScene("PlayerWon");
     }
 
-    public void SetStageStars(int stage, int stars)
+    public int GetTotalCoins()
     {
-        if (stage >= 0 && stage < stages.Length)
-        {
-            stages[stage].stars = stars;
-        }
+        return coins;
     }
 
     public void AddCoins(int amount)
     {
-        totalCoins += amount;
+        coins += amount;
     }
 
     public void RemoveCoins(int amount)
     {
-        totalCoins -= amount;
-    }
-
-    public void AddFeature(string s)
-    {
-        if (s.Equals("hourglass"))
-        {
-            hourglass.amount++;
-        }
-        else if (s.Equals("snack"))
-        {
-            snack.amount++;
-        }
-        else if (s.Equals("x2"))
-        {
-            x2.amount++;
-        }
-        else if (s.Equals("ball"))
-        {
-            ball.amount++;
-        }
-    }
-
-    public void RemoveFeature(string s)
-    {
-        if (s.Equals("hourglass"))
-        {
-            hourglass.amount--;
-        }
-        else if (s.Equals("snack"))
-        {
-            snack.amount--;
-        }
-        else if (s.Equals("x2"))
-        {
-            x2.amount--;
-        }
-        else if (s.Equals("ball"))
-        {
-            ball.amount--;
-        }
-    }
-
-    // Method to open rooms
-    public void OpenRoom(int roomIndex)
-    {
-        if (roomIndex >= 0 && roomIndex < rooms.Length)
-        {
-            rooms[roomIndex].isOpen = true;
-        }
-    }
-
-    // Method to update the time limit for a level
-    public void SetStageTimeLimit(int stage, float time)
-    {
-        if (stage >= 0 && stage < stages.Length)
-        {
-            stages[stage].timeLimit -= time;
-        }
+        coins -= amount;
     }
 }

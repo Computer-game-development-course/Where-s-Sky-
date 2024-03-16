@@ -123,20 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &29696604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7178680028266395614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c933f3f7bb560e64a8ac356f978c9b56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneToLoad: room1
-  animationDuration: 0.2
 --- !u!1 &41163515
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,7 +591,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93f695bb7e41c3a49a620a7d003fb590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   hoverColor: {r: 0.729, g: 0.729, b: 0.729, a: 1}
+=======
+  sceneToLoad: massege
+  animationDuration: 0.5
+--- !u!58 &419273485
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419273483}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2.06
+--- !u!114 &514136504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7178680028266395619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f3723294fdc5417a8c4615307b9cfd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelNumber: 6
+  animationDuration: 0.2
+>>>>>>> TDS-28-FeaturesBar
 --- !u!114 &560723467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -705,6 +745,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: room1
   animationDuration: 0.2
+--- !u!114 &701211010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7178680028266395620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f3723294fdc5417a8c4615307b9cfd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelNumber: 5
+  animationDuration: 0.2
+--- !u!114 &703335314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7178680028266395617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f3723294fdc5417a8c4615307b9cfd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelNumber: 8
+  animationDuration: 0.2
 --- !u!114 &714434072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -718,6 +786,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: room1
+  animationDuration: 0.2
+--- !u!114 &732204835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7178680028266395618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f3723294fdc5417a8c4615307b9cfd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelNumber: 7
   animationDuration: 0.2
 --- !u!114 &766449187
 MonoBehaviour:
@@ -733,12 +815,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: room1
   animationDuration: 0.2
+<<<<<<< HEAD
 --- !u!114 &792272233
+=======
+--- !u!114 &769060848
+>>>>>>> TDS-28-FeaturesBar
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 7178680028266395611}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -747,11 +834,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.729, g: 0.729, b: 0.729, a: 1}
 --- !u!114 &819651370
+=======
+  m_GameObject: {fileID: 7178680028266395595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f3723294fdc5417a8c4615307b9cfd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelNumber: 0
+  animationDuration: 0.2
+--- !u!114 &912127032
+>>>>>>> TDS-28-FeaturesBar
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 7178680028266395594}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -798,6 +897,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.729, g: 0.729, b: 0.729, a: 1}
+=======
+  m_GameObject: {fileID: 7178680028266395613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f3723294fdc5417a8c4615307b9cfd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelNumber: 12
+  animationDuration: 0.2
+>>>>>>> TDS-28-FeaturesBar
 --- !u!114 &1042079804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -826,12 +935,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: room1
   animationDuration: 0.2
+<<<<<<< HEAD
 --- !u!114 &1077744966
+=======
+--- !u!114 &1108272968
+>>>>>>> TDS-28-FeaturesBar
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 7178680028266395607}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -905,6 +1019,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8261837688684497584, guid: db5f6db7d68cda44992d22e335de3334, type: 3}
   m_PrefabInstance: {fileID: 1088130266}
   m_PrefabAsset: {fileID: 0}
+=======
+  m_GameObject: {fileID: 7178680028266395615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f3723294fdc5417a8c4615307b9cfd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelNumber: 10
+  animationDuration: 0.2
+>>>>>>> TDS-28-FeaturesBar
 --- !u!114 &1172370259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -933,6 +1057,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: room1
   animationDuration: 0.2
+<<<<<<< HEAD
 --- !u!114 &1303270193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -960,18 +1085,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.729, g: 0.729, b: 0.729, a: 1}
 --- !u!114 &1360429747
+=======
+--- !u!114 &1398454739
+>>>>>>> TDS-28-FeaturesBar
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7178680028266395617}
+  m_GameObject: {fileID: 7178680028266395616}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c933f3f7bb560e64a8ac356f978c9b56, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f3723294fdc5417a8c4615307b9cfd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: room1
+  levelNumber: 9
   animationDuration: 0.2
 --- !u!114 &1410761956
 MonoBehaviour:
@@ -1000,6 +1128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: room1
   animationDuration: 0.2
+<<<<<<< HEAD
 --- !u!114 &1432724848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1027,6 +1156,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: room1
   animationDuration: 0.2
+=======
+>>>>>>> TDS-28-FeaturesBar
 --- !u!114 &1564389997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1041,6 +1172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: room1
   animationDuration: 0.2
+<<<<<<< HEAD
 --- !u!114 &1574901556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1068,6 +1200,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.729, g: 0.729, b: 0.729, a: 1}
+=======
+>>>>>>> TDS-28-FeaturesBar
 --- !u!1 &1762729177
 GameObject:
   m_ObjectHideFlags: 0
@@ -1187,12 +1321,17 @@ VideoPlayer:
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
+<<<<<<< HEAD
 --- !u!114 &1768430589
+=======
+--- !u!114 &1785592380
+>>>>>>> TDS-28-FeaturesBar
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 7178680028266395618}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -1375,6 +1514,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+=======
+  m_GameObject: {fileID: 7178680028266395594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f3723294fdc5417a8c4615307b9cfd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelNumber: 1
+  animationDuration: 0.2
+>>>>>>> TDS-28-FeaturesBar
 --- !u!1 &1982514506 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3433614196064795063, guid: 1aed2648f39ba934dbdf0287ea89ad6c, type: 3}
@@ -1425,6 +1574,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2000340234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7178680028266395614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f3723294fdc5417a8c4615307b9cfd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelNumber: 11
+  animationDuration: 0.2
 --- !u!114 &2010364783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1432,20 +1595,6 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7178680028266395596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c933f3f7bb560e64a8ac356f978c9b56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneToLoad: room1
-  animationDuration: 0.2
---- !u!114 &2036964623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7178680028266395618}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c933f3f7bb560e64a8ac356f978c9b56, type: 3}
@@ -1508,6 +1657,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: room1
   animationDuration: 0.2
+<<<<<<< HEAD
 --- !u!114 &2104374800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1549,6 +1699,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: room1
   animationDuration: 0.2
+=======
+>>>>>>> TDS-28-FeaturesBar
 --- !u!1001 &7178680028266395592
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1631,6 +1783,7 @@ PrefabInstance:
     - {fileID: 136704139880605629, guid: 1aed2648f39ba934dbdf0287ea89ad6c, type: 3}
     - {fileID: 3685183645635161209, guid: 1aed2648f39ba934dbdf0287ea89ad6c, type: 3}
     - {fileID: 3011291874005554657, guid: 1aed2648f39ba934dbdf0287ea89ad6c, type: 3}
+    - {fileID: 1426026506263720737, guid: 1aed2648f39ba934dbdf0287ea89ad6c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 335464533182204530, guid: 1aed2648f39ba934dbdf0287ea89ad6c, type: 3}
@@ -1642,6 +1795,7 @@ PrefabInstance:
       addedObject: {fileID: 1982514508}
     - targetCorrespondingSourceObject: {fileID: 2816791920639834199, guid: 1aed2648f39ba934dbdf0287ea89ad6c, type: 3}
       insertIndex: -1
+<<<<<<< HEAD
       addedObject: {fileID: 285922102}
     - targetCorrespondingSourceObject: {fileID: 713090073345184043, guid: 1aed2648f39ba934dbdf0287ea89ad6c, type: 3}
       insertIndex: -1
@@ -1715,6 +1869,45 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3212340079950224901, guid: 1aed2648f39ba934dbdf0287ea89ad6c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1843542276}
+=======
+      addedObject: {fileID: 769060848}
+    - targetCorrespondingSourceObject: {fileID: 713090073345184043, guid: 1aed2648f39ba934dbdf0287ea89ad6c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1785592380}
+    - targetCorrespondingSourceObject: {fileID: 4179091019669689071, guid: 1aed2648f39ba934dbdf0287ea89ad6c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7178680028266395627}
+    - targetCorrespondingSourceObject: {fileID: 141730880482647446, guid: 1aed2648f39ba934dbdf0287ea89ad6c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7178680028266395626}
+    - targetCorrespondingSourceObject: {fileID: 2226286350155756869, guid: 1aed2648f39ba934dbdf0287ea89ad6c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7178680028266395624}
+    - targetCorrespondingSourceObject: {fileID: 3462827554003652298, guid: 1aed2648f39ba934dbdf0287ea89ad6c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 701211010}
+    - targetCorrespondingSourceObject: {fileID: 7570571331345735906, guid: 1aed2648f39ba934dbdf0287ea89ad6c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 514136504}
+    - targetCorrespondingSourceObject: {fileID: 601238730135641559, guid: 1aed2648f39ba934dbdf0287ea89ad6c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 732204835}
+    - targetCorrespondingSourceObject: {fileID: 6423351001664297479, guid: 1aed2648f39ba934dbdf0287ea89ad6c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 703335314}
+    - targetCorrespondingSourceObject: {fileID: 7018847426558698306, guid: 1aed2648f39ba934dbdf0287ea89ad6c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1398454739}
+    - targetCorrespondingSourceObject: {fileID: 6290799963898097279, guid: 1aed2648f39ba934dbdf0287ea89ad6c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1108272968}
+    - targetCorrespondingSourceObject: {fileID: 7932122665145855374, guid: 1aed2648f39ba934dbdf0287ea89ad6c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2000340234}
+    - targetCorrespondingSourceObject: {fileID: 3212340079950224901, guid: 1aed2648f39ba934dbdf0287ea89ad6c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 912127032}
+>>>>>>> TDS-28-FeaturesBar
     - targetCorrespondingSourceObject: {fileID: 5573694168335790857, guid: 1aed2648f39ba934dbdf0287ea89ad6c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 714434072}
@@ -1828,20 +2021,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 713090073345184043, guid: 1aed2648f39ba934dbdf0287ea89ad6c, type: 3}
   m_PrefabInstance: {fileID: 7178680028266395592}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7178680028266395595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!1 &7178680028266395595 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2816791920639834199, guid: 1aed2648f39ba934dbdf0287ea89ad6c, type: 3}
+  m_PrefabInstance: {fileID: 7178680028266395592}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7178680028266395594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c933f3f7bb560e64a8ac356f978c9b56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneToLoad: room1
-  animationDuration: 0.2
 --- !u!1 &7178680028266395596 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4682963112316697919, guid: 1aed2648f39ba934dbdf0287ea89ad6c, type: 3}
@@ -1982,21 +2166,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4179091019669689071, guid: 1aed2648f39ba934dbdf0287ea89ad6c, type: 3}
   m_PrefabInstance: {fileID: 7178680028266395592}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7178680028266395625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7178680028266395619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c933f3f7bb560e64a8ac356f978c9b56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneToLoad: room1
-  animationDuration: 0.2
---- !u!114 &7178680028266395626
+--- !u!114 &7178680028266395624
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2005,12 +2175,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7178680028266395621}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c933f3f7bb560e64a8ac356f978c9b56, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f3723294fdc5417a8c4615307b9cfd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: room1
+  levelNumber: 4
   animationDuration: 0.2
---- !u!114 &7178680028266395627
+--- !u!114 &7178680028266395626
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2019,12 +2189,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7178680028266395622}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c933f3f7bb560e64a8ac356f978c9b56, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f3723294fdc5417a8c4615307b9cfd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: room1
+  levelNumber: 3
   animationDuration: 0.2
---- !u!114 &7178680028266395628
+--- !u!114 &7178680028266395627
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2033,10 +2203,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7178680028266395623}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c933f3f7bb560e64a8ac356f978c9b56, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f3723294fdc5417a8c4615307b9cfd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: room1
+  levelNumber: 2
   animationDuration: 0.2
 --- !u!114 &7178680028266395629
 MonoBehaviour:

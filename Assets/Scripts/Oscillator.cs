@@ -28,10 +28,6 @@ public class Oscillator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        // Output to the console
-        Debug.Log("Start");
-
         // Get the Transform component of the current fish
         fishTransform = GetComponent<Transform>();
 
@@ -45,8 +41,6 @@ public class Oscillator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Output to the console
-        Debug.Log("Update");
 
         // Calculate the current sine wave value, which return a value between -1 and 1
         float CurrentsinWave = Mathf.Sin(Time.time * velocity);

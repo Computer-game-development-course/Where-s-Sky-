@@ -9,7 +9,7 @@ public class LevelStarsManager : MonoBehaviour
 
     private void UpdateLevelUI()
     {
-        for (int i = 0; i < GameManager.Instance.stages.Length; i++)
+        for (int i = 0; i < GameManager.Instance.levels.Length; i++)
         {
             // Finding each level object by name
             GameObject levelObject = GameObject.Find($"Level {i + 1}");
@@ -20,7 +20,7 @@ public class LevelStarsManager : MonoBehaviour
                 GameObject lockObject = levelObject.transform.Find("lock").gameObject;
                 if (lockObject != null)
                 {
-                    bool isStageOpen = GameManager.Instance.stages[i].isOpen;
+                    bool isStageOpen = GameManager.Instance.levels[i].isOpen;
                     lockObject.SetActive(!isStageOpen);
 
                     // Enable or disable the SceneToLoad script based on the stage's open status
@@ -40,7 +40,7 @@ public class LevelStarsManager : MonoBehaviour
                     GameObject star3 = starsObject.transform.Find("star3").gameObject;
 
                     // Update visibility based on the number of stars earned
-                    int starsEarned = GameManager.Instance.stages[i].stars;
+                    int starsEarned = GameManager.Instance.levels[i].stars;
                     star1.SetActive(starsEarned >= 1);
                     star2.SetActive(starsEarned >= 2);
                     star3.SetActive(starsEarned == 3);
