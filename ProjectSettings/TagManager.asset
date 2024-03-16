@@ -13,6 +13,9 @@ TagManager:
   - EDGE
   - drop
   - DEL
+  - Cube
+  - enemy
+  - Audio
   layers:
   - Default
   - TransparentFX

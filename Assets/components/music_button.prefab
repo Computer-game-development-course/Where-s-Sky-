@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4059668398553189094}
   - component: {fileID: 614535557204907954}
   - component: {fileID: 6621586759483660531}
-  - component: {fileID: 785687661822665261}
+  - component: {fileID: -1648913805699632531}
   m_Layer: 0
   m_Name: music_button
   m_TagString: button
@@ -121,7 +121,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2.18
---- !u!114 &785687661822665261
+--- !u!114 &-1648913805699632531
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,7 +130,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 56634104632484724}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93f695bb7e41c3a49a620a7d003fb590, type: 3}
+  m_Script: {fileID: 11500000, guid: a1a5719c644c65e4a832b8699c8f04f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverColor: {r: 0.7294118, g: 0.7294118, b: 0.7294118, a: 1}
+  animationDuration: 0.2
+  hoverColor: {r: 0.729, g: 0.729, b: 0.729, a: 1}
