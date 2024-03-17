@@ -133,6 +133,7 @@ public class LevelManager : MonoBehaviour
                         MapButton.SetActive(false);
                         Cat.SetActive(false);
                         SettingButton.SetActive(false);
+                        FeaturesMenu.SetActive(false);
                         SettingMenu.SetActive(true);
                     }
                     else if (FeaturesMenu.activeSelf)
@@ -183,6 +184,7 @@ public class LevelManager : MonoBehaviour
                                         MapRoom.SetActive(false);
                                         MapButton.SetActive(true);
                                         Timer.SetActive(true);
+                                        FeaturesMenu.SetActive(true);
                                         SettingButton.SetActive(true);
                                         isTimerDisplayed = true;
                                         isTimerPaused = false;
@@ -215,6 +217,7 @@ public class LevelManager : MonoBehaviour
                         }
                         Timer.SetActive(true);
                         SettingButton.SetActive(true);
+                        FeaturesMenu.SetActive(true);
                         isTimerDisplayed = true;
                         isTimerPaused = false;
                         if (currentRoomKey == catRoomKey)
@@ -283,6 +286,7 @@ public class LevelManager : MonoBehaviour
         MapButton.SetActive(false);
         Cat.SetActive(false);
         SettingButton.SetActive(false);
+        FeaturesMenu.SetActive(false);
 
         Room currentRoom = rooms[currentRoomKey];
         currentRoom.room.SetActive(false);
@@ -425,6 +429,7 @@ public class LevelManager : MonoBehaviour
         currentRoom.room.SetActive(false);
         MapButton.SetActive(false);
         Cat.SetActive(false);
+        FeaturesMenu.SetActive(false);
         SettingButton.SetActive(false);
         PlayerLostMenu.SetActive(true);
     }

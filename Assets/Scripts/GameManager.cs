@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
 
-            string[] roomNames = { "EntryRoom", "Bathroom", "Backyard", "Bedroom", "Kitchen", "LaundryRoom", "LivingRoom", "OfficeRoom" };
+            string[] roomNames = { "EntryRoom", "Bathroom", "LaundryRoom", "OfficeRoom", "LivingRoom", "Kitchen", "Bedroom", "Backyard" };
 
             for (int i = 0; i < levelsCount; i++)
             {
@@ -71,7 +71,11 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevel(int levelId)
     {
-        currentLevel = levels[levelId];
+        if (levelId != -2)
+        {
+            currentLevel = levels[levelId];
+        }
+
         SceneManager.LoadScene("Level");
     }
 

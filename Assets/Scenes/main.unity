@@ -895,39 +895,6 @@ MonoBehaviour:
     rooms: []
     isCompleted: 0
     time: 0
-  roomScenes:
-  - isOpen: 0
-    sceneName: 
-    isCatThere: 0
-    opensAtLevel: 0
-  - isOpen: 0
-    sceneName: 
-    isCatThere: 0
-    opensAtLevel: 0
-  - isOpen: 0
-    sceneName: 
-    isCatThere: 0
-    opensAtLevel: 0
-  - isOpen: 0
-    sceneName: 
-    isCatThere: 0
-    opensAtLevel: 0
-  - isOpen: 0
-    sceneName: 
-    isCatThere: 0
-    opensAtLevel: 0
-  - isOpen: 0
-    sceneName: 
-    isCatThere: 0
-    opensAtLevel: 0
-  - isOpen: 0
-    sceneName: 
-    isCatThere: 0
-    opensAtLevel: 0
-  - isOpen: 0
-    sceneName: 
-    isCatThere: 0
-    opensAtLevel: 0
   coins: 0
   currentLevel:
     id: 0
@@ -937,10 +904,10 @@ MonoBehaviour:
     isCompleted: 0
     time: 0
   features:
-    hourglass: 4
-    snack: 1
-    x2: 3
-    ball: 9
+    hourglass: 0
+    snack: 0
+    x2: 0
+    ball: 0
   previousLevelMoneyEarned: 0
 --- !u!4 &733367469
 Transform:
