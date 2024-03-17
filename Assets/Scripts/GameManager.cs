@@ -84,7 +84,6 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevel(int levelId)
     {
-        levels[levelId].isOpen = true;
         currentLevel = levels[levelId];
         SceneManager.LoadScene("Level");
     }

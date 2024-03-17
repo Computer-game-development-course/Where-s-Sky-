@@ -91,19 +91,10 @@ public class LevelManager : MonoBehaviour
         SettingButton.SetActive(true);
         mapCollider = MapButton.GetComponent<BoxCollider2D>();
 
-        if (level.rooms.Length > 1)
-        {
-            MapButton.SetActive(true);
-        }
-        else
-        {
-            MapButton.SetActive(false);
-        }
+        MapButton.SetActive(level.rooms.Length > 1);
 
-        if (currentRoomKey == catRoomKey)
-        {
-            Cat.SetActive(true);
-        }
+        Cat.SetActive(currentRoomKey == catRoomKey);
+
     }
 
     void Update()

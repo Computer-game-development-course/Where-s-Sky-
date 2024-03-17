@@ -51,6 +51,20 @@ public class CameraController : MonoBehaviour
                 if (!isFlashingLeft) StartCoroutine(FlashArrow(leftArrow, false));
             }
         }
+        else if (Input.GetMouseButtonDown(0))
+        {
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            if (leftArrow.GetComponent<Collider2D>().OverlapPoint(mousePos) && transform.position.x > leftLimit)
+            {
+                transform.Translate(Vector3.left * cameraMoveSpeed * Time.deltaTime * 40);
+                if (!isFlashingLeft) StartCoroutine(FlashArrow(leftArrow, false));
+            }
+            else if (rightArrow.GetComponent<Collider2D>().OverlapPoint(mousePos) && transform.position.x < rightLimit)
+            {
+                transform.Translate(Vector3.right * cameraMoveSpeed * Time.deltaTime * 40);
+                if (!isFlashingRight) StartCoroutine(FlashArrow(rightArrow, true));
+            }
+        }
     }
 
     private void UpdateArrowVisibilityAndEffect()
