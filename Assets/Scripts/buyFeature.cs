@@ -25,23 +25,19 @@ public class buyFeature : MonoBehaviour
 
     void Update()
     {
-        // Check for mouse button (left click) press
         if (Input.GetMouseButtonDown(0))
         {
-            // Convert mouse position to world coordinates
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            // Check if the mouse click is over this object's collider
             if (GetComponent<Collider2D>().OverlapPoint(mousePos))
             {
-                // Start the scale animation and scene change coroutine
                 StartCoroutine(AnimateAndChangeScene());
 
                 int money = GameManager.Instance.GetTotalCoins();
                 if (money > cost)
                 {
                     GameManager.Instance.RemoveCoins(cost);
-                    //GameManager.Instance.AddFeature(featureName);
+                    GameManager.Instance.AddFeature(featureName);
                 }
                 else
                 {
