@@ -23,21 +23,38 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private float initialTime;
     [SerializeField] GameObject Timer;
     [SerializeField] GameObject MapButton;
+    [SerializeField] GameObject SettingButton;
+    [SerializeField] Collider2D SettingButtonCollider;
     [SerializeField] GameObject MapRoom;
     [SerializeField] GameObject[] MapRoomsMenu;
     [SerializeField] GameObject Cat;
+    [SerializeField] GameObject SettingMenu;
+    [SerializeField] GameObject PlayerLostMenu;
+    [SerializeField] Collider2D RetryButtonCollider;
+    [SerializeField] Collider2D QuitButtonCollider;
+    [SerializeField] Collider2D ContinueButtonCollider;
+    [SerializeField] Collider2D ReplayButtonCollider;
+    [SerializeField] GameObject FeaturesMenu;
+    [SerializeField] GameObject Hourglass;
+    [SerializeField] GameObject Snack;
+    [SerializeField] GameObject X2;
+    [SerializeField] GameObject Ball;
     private PolygonCollider2D CatCollider;
     private Dictionary<string, Room> rooms = new Dictionary<string, Room>();
     private string currentRoomKey;
     private string catRoomKey;
     BoxCollider2D mapCollider;
-    private FeaturesManager featuresManager;
     private bool isTimerPaused = false;
     private bool isTimerDisplayed = true;
+    private bool X2Activated = false;
 
     void Start()
     {
         level = GameManager.Instance.currentLevel;
+        UpdateFeaturesState(Hourglass, GameManager.Instance.features.hourglass);
+        UpdateFeaturesState(Snack, GameManager.Instance.features.snack);
+        UpdateFeaturesState(X2, GameManager.Instance.features.x2);
+        UpdateFeaturesState(Ball, GameManager.Instance.features.ball);
 
         foreach (GameObject room in roomObjects)
         {
@@ -71,7 +88,7 @@ public class LevelManager : MonoBehaviour
         timeLeft = initialTime;
 
         Timer.SetActive(true);
-
+        SettingButton.SetActive(true);
         mapCollider = MapButton.GetComponent<BoxCollider2D>();
 
         if (level.rooms.Length > 1)
@@ -116,43 +133,118 @@ public class LevelManager : MonoBehaviour
                     {
                         playerWon();
                     }
+                    else if (SettingButtonCollider.OverlapPoint(mousePos))
+                    {
+                        pauseTimer();
+                        hideTimer();
+                        Room currentRoom = rooms[currentRoomKey];
+                        currentRoom.room.SetActive(false);
+                        MapButton.SetActive(false);
+                        Cat.SetActive(false);
+                        SettingButton.SetActive(false);
+                        SettingMenu.SetActive(true);
+                    }
+                    else if (FeaturesMenu.activeSelf)
+                    {
+                        if (Hourglass.GetComponent<BoxCollider2D>().OverlapPoint(mousePos))
+                        {
+                            ActivateFeature("hourglass");
+                        }
+                        if (Snack.GetComponent<BoxCollider2D>().OverlapPoint(mousePos))
+                        {
+                            ActivateFeature("snack");
+                        }
+                        if (X2.GetComponent<BoxCollider2D>().OverlapPoint(mousePos))
+                        {
+                            ActivateFeature("x2");
+                        }
+                        if (Ball.GetComponent<BoxCollider2D>().OverlapPoint(mousePos))
+                        {
+                            ActivateFeature("ball");
+                        }
+                    }
+
                 }
             }
         }
         else
         {
-            if (Input.GetMouseButtonDown(0) && MapRoom.activeSelf)
+            if (Input.GetMouseButtonDown(0))
             {
                 Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-                foreach (GameObject room in MapRoomsMenu)
+                if (MapRoom.activeSelf)
                 {
-                    if (room != null)
+                    foreach (GameObject room in MapRoomsMenu)
                     {
-                        GameObject roomCollider = room.transform.Find("RoomCollider").gameObject;
-                        if (roomCollider != null)
+                        if (room != null)
                         {
-                            if (roomCollider.GetComponent<Collider2D>().OverlapPoint(mousePos))
+                            GameObject roomCollider = room.transform.Find("RoomCollider").gameObject;
+                            if (roomCollider != null)
                             {
-                                Room selectedRoom = rooms[room.name];
-                                if (selectedRoom.isRoomAvailable)
+                                if (roomCollider.GetComponent<Collider2D>().OverlapPoint(mousePos))
                                 {
-                                    selectedRoom.room.SetActive(true);
-                                    currentRoomKey = room.name;
-                                    MapRoom.SetActive(false);
-                                    MapButton.SetActive(true);
-                                    Timer.SetActive(true);
-                                    isTimerDisplayed = true;
-                                    isTimerPaused = false;
-
-                                    if (currentRoomKey == catRoomKey)
+                                    Room selectedRoom = rooms[room.name];
+                                    if (selectedRoom.isRoomAvailable)
                                     {
-                                        Cat.SetActive(true);
+                                        selectedRoom.room.SetActive(true);
+                                        currentRoomKey = room.name;
+                                        MapRoom.SetActive(false);
+                                        MapButton.SetActive(true);
+                                        Timer.SetActive(true);
+                                        SettingButton.SetActive(true);
+                                        isTimerDisplayed = true;
+                                        isTimerPaused = false;
+
+                                        if (currentRoomKey == catRoomKey)
+                                        {
+                                            Cat.SetActive(true);
+                                        }
                                     }
                                 }
-                            }
 
+                            }
                         }
+                    }
+                }
+                else if (SettingMenu.activeSelf)
+                {
+                    if (ContinueButtonCollider.OverlapPoint(mousePos))
+                    {
+                        SettingMenu.SetActive(false);
+                        Room currentRoom = rooms[currentRoomKey];
+                        currentRoom.room.SetActive(true);
+                        if (level.rooms.Length > 1)
+                        {
+                            MapButton.SetActive(true);
+                        }
+                        else
+                        {
+                            MapButton.SetActive(false);
+                        }
+                        Timer.SetActive(true);
+                        SettingButton.SetActive(true);
+                        isTimerDisplayed = true;
+                        isTimerPaused = false;
+                        if (currentRoomKey == catRoomKey)
+                        {
+                            Cat.SetActive(true);
+                        }
+                    }
+                    else if (ReplayButtonCollider.OverlapPoint(mousePos))
+                    {
+                        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                    }
+                }
+                else if (PlayerLostMenu.activeSelf)
+                {
+                    if (RetryButtonCollider.OverlapPoint(mousePos))
+                    {
+                        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                    }
+                    else if (QuitButtonCollider.OverlapPoint(mousePos))
+                    {
+                        GameManager.Instance.LoadLevelsMenu();
                     }
                 }
             }
@@ -199,6 +291,7 @@ public class LevelManager : MonoBehaviour
         hideTimer();
         MapButton.SetActive(false);
         Cat.SetActive(false);
+        SettingButton.SetActive(false);
 
         Room currentRoom = rooms[currentRoomKey];
         currentRoom.room.SetActive(false);
@@ -235,12 +328,81 @@ public class LevelManager : MonoBehaviour
 
     void UpdateTimerText()
     {
-        TextMeshPro timerText = GetComponentInChildren<TextMeshPro>();
+        TextMeshPro timerText = Timer.GetComponentInChildren<TextMeshPro>();
 
         if (timerText != null)
         {
             timerText.text = $"00:{timeLeft:00}";
         }
+    }
+
+    void UpdateFeaturesState(GameObject feature, int count)
+    {
+        TextMeshPro featureText = feature.GetComponentInChildren<TextMeshPro>();
+
+        if (featureText != null)
+        {
+            featureText.text = count.ToString();
+        }
+
+        if (count == 0)
+        {
+            feature.GetComponent<BoxCollider2D>().enabled = false;
+        }
+    }
+
+    void ActivateFeature(string featureName)
+    {
+        switch (featureName)
+        {
+            case "hourglass":
+                if (GameManager.Instance.features.hourglass > 0)
+                {
+                    pauseTimer();
+                    Invoke(nameof(DeactivateHourglass), 10f);
+                    GameManager.Instance.RemoveFeature("hourglass");
+                    UpdateFeaturesState(Hourglass, GameManager.Instance.features.hourglass);
+
+                }
+                break;
+            case "snack":
+                if (GameManager.Instance.features.snack > 0)
+                {
+                    if (Cat.activeSelf)
+                    {
+                        playerWon();
+                    }
+                    GameManager.Instance.RemoveFeature("snack");
+                    UpdateFeaturesState(Snack, GameManager.Instance.features.snack);
+
+                }
+                break;
+            case "x2":
+                if (GameManager.Instance.features.x2 > 0)
+                {
+                    X2Activated = true;
+                    GameManager.Instance.RemoveFeature("x2");
+                    UpdateFeaturesState(X2, GameManager.Instance.features.x2);
+                }
+                break;
+            case "ball":
+                if (GameManager.Instance.features.ball > 0)
+                {
+                    GameManager.Instance.RemoveFeature("ball");
+                    X2Activated = true;
+                    if (Cat.activeSelf)
+                    {
+                        playerWon();
+                    }
+                    UpdateFeaturesState(Ball, GameManager.Instance.features.ball);
+                }
+                break;
+        }
+    }
+
+    private void DeactivateHourglass()
+    {
+        isTimerPaused = false;
     }
 
     public void pauseTimer()
@@ -266,8 +428,14 @@ public class LevelManager : MonoBehaviour
 
     void LoadLoseScene()
     {
-        Debug.Log("Time's Up! You Lost!");
-        SceneManager.LoadScene("lose");
+        pauseTimer();
+        hideTimer();
+        Room currentRoom = rooms[currentRoomKey];
+        currentRoom.room.SetActive(false);
+        MapButton.SetActive(false);
+        Cat.SetActive(false);
+        SettingButton.SetActive(false);
+        PlayerLostMenu.SetActive(true);
     }
 
     public void playerWon()
@@ -289,7 +457,9 @@ public class LevelManager : MonoBehaviour
         {
             starsEarned = 3;
         }
-        GameManager.Instance.setLevelScore(level.id, starsEarned, true, (int)timeLeft * 2);
+        int moneyBonus = X2Activated ? 4 : 2;
+        int coinsEarned = (int)timeLeft * moneyBonus;
+        GameManager.Instance.setLevelScore(level.id, starsEarned, true, coinsEarned);
     }
 
     void OnDestroy()

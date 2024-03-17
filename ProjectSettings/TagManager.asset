@@ -3,7 +3,19 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - background
+  - button
+  - Audio
+  - star
+  - lock
+  - enemy
+  - Dynamic
+  - Static
+  - Map
+  - MapRoom
+  - MapRoomCollider
+  - cat
   layers:
   - Default
   - TransparentFX
@@ -38,6 +50,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1560878829
+    locked: 0
+  - name: StaticItem
+    uniqueID: 2603548159
+    locked: 0
+  - name: Cat
+    uniqueID: 3128938553
+    locked: 0
+  - name: DynamicItem
+    uniqueID: 753175559
+    locked: 0
+  - name: Button
+    uniqueID: 535490551
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

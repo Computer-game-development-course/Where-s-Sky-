@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class LevelStarsManager : MonoBehaviour
 {
+    [SerializeField] GameObject[] levelsButtons;
     void OnEnable()
     {
         UpdateLevelUI();
@@ -11,27 +12,24 @@ public class LevelStarsManager : MonoBehaviour
     {
         for (int i = 0; i < GameManager.Instance.levels.Length; i++)
         {
-            // Finding each level object by name
-            GameObject levelObject = GameObject.Find($"Level {i + 1}");
+            GameObject levelObject = levelsButtons[i];
 
             if (levelObject != null)
             {
-                // Update lock status
+                bool isLevelOpen = GameManager.Instance.levels[i].isOpen;
+
                 GameObject lockObject = levelObject.transform.Find("lock").gameObject;
                 if (lockObject != null)
                 {
-                    bool isStageOpen = GameManager.Instance.levels[i].isOpen;
-                    lockObject.SetActive(!isStageOpen);
+                    lockObject.SetActive(!isLevelOpen);
 
-                    // Enable or disable the SceneToLoad script based on the stage's open status
-                    AssetClick sceneToLoadScript = levelObject.GetComponent<AssetClick>();
-                    if (sceneToLoadScript != null)
+                    BoxCollider2D buttonCollider = levelObject.GetComponent<BoxCollider2D>();
+                    if (buttonCollider != null)
                     {
-                        sceneToLoadScript.enabled = isStageOpen;
+                        buttonCollider.enabled = isLevelOpen;
                     }
                 }
 
-                // Update stars
                 GameObject starsObject = levelObject.transform.Find("stars").gameObject;
                 if (starsObject != null)
                 {
@@ -39,11 +37,11 @@ public class LevelStarsManager : MonoBehaviour
                     GameObject star2 = starsObject.transform.Find("star2").gameObject;
                     GameObject star3 = starsObject.transform.Find("star3").gameObject;
 
-                    // Update visibility based on the number of stars earned
                     int starsEarned = GameManager.Instance.levels[i].stars;
                     star1.SetActive(starsEarned >= 1);
                     star2.SetActive(starsEarned >= 2);
                     star3.SetActive(starsEarned == 3);
+
                 }
             }
         }

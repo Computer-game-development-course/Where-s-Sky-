@@ -5,6 +5,9 @@ public class CameraController : MonoBehaviour
     [SerializeField] GameObject leftArrow;
     [SerializeField] GameObject rightArrow;
     [SerializeField] GameObject MapRoom = null;
+    [SerializeField] GameObject SettingRoom = null;
+
+    [SerializeField] GameObject PlayerLostRoom = null;
     [SerializeField] float cameraMoveSpeed = 5.0f;
     [SerializeField] float leftLimit = 0.2f;
     [SerializeField] float rightLimit = 5.2f;
@@ -14,10 +17,12 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        if (MapRoom != null && MapRoom.activeSelf)
+        bool isRoomActive = (MapRoom != null && MapRoom.activeSelf) || (SettingRoom != null && SettingRoom.activeSelf) || (PlayerLostRoom != null && PlayerLostRoom.activeSelf);
+        if (isRoomActive)
         {
             leftArrow.SetActive(false);
             rightArrow.SetActive(false);
+            transform.position = new Vector3(0, 0, -10);
         }
         else
         {

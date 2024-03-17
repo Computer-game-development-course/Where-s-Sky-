@@ -568,7 +568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c933f3f7bb560e64a8ac356f978c9b56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: select_level
+  sceneToLoad: SelectLevel
   animationDuration: 0.2
 --- !u!70 &701239458
 CapsuleCollider2D:
@@ -714,14 +714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf87d5f522d4055419dffad96c613136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentStage: 0
-  lastToOpen: 0
-  stages:
-  - isOpen: 1
-    stars: 0
-    rooms: []
-    isCompleted: 0
-    time: 0
+  levels:
   - id: 0
     isOpen: 0
     stars: 0
@@ -896,27 +889,54 @@ MonoBehaviour:
     rooms: []
     isCompleted: 0
     time: 0
-  rooms:
-  - isOpen: 1
+  - id: 0
+    isOpen: 0
+    stars: 0
+    rooms: []
+    isCompleted: 0
+    time: 0
+  roomScenes:
   - isOpen: 0
+    sceneName: 
+    isCatThere: 0
+    opensAtLevel: 0
   - isOpen: 0
+    sceneName: 
+    isCatThere: 0
+    opensAtLevel: 0
   - isOpen: 0
+    sceneName: 
+    isCatThere: 0
+    opensAtLevel: 0
   - isOpen: 0
+    sceneName: 
+    isCatThere: 0
+    opensAtLevel: 0
   - isOpen: 0
+    sceneName: 
+    isCatThere: 0
+    opensAtLevel: 0
   - isOpen: 0
+    sceneName: 
+    isCatThere: 0
+    opensAtLevel: 0
   - isOpen: 0
-  hourglass:
-    amount: 0
-  snack:
-    amount: 0
-  x2:
-    amount: 0
-  ball:
-    amount: 0
-  totalCoins: 0
-  timeLeft: 40
-  initial_time: 40
-  isReset: 0
+    sceneName: 
+    isCatThere: 0
+    opensAtLevel: 0
+  - isOpen: 0
+    sceneName: 
+    isCatThere: 0
+    opensAtLevel: 0
+  coins: 0
+  currentLevel:
+    id: 0
+    isOpen: 0
+    stars: 0
+    rooms: []
+    isCompleted: 0
+    time: 0
+  previousLevelMoneyEarned: 0
 --- !u!4 &733367469
 Transform:
   m_ObjectHideFlags: 0
@@ -956,7 +976,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 943205239}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a06bc2dfc7a47940937bb44f43cca11, type: 3}
   m_Name: 

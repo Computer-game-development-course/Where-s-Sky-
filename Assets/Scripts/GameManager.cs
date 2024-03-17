@@ -24,6 +24,15 @@ public class RoomScene
     public int opensAtLevel = 0;
 }
 
+[System.Serializable]
+public class Features
+{
+    public int hourglass = 4;
+    public int snack = 1;
+    public int x2 = 3;
+    public int ball = 9;
+}
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
@@ -33,6 +42,7 @@ public class GameManager : MonoBehaviour
     public RoomScene[] roomScenes = new RoomScene[roomsCount];
     public int coins = 0;
     public Level currentLevel = null;
+    public Features features = new Features();
     private const int timePerRoom = 10;
     public int previousLevelMoneyEarned = 0;
 
@@ -87,7 +97,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevelsMenu()
     {
-        SceneManager.LoadScene("select_level");
+        SceneManager.LoadScene("SelectLevel");
     }
 
     public void setLevelScore(int level, int stars, bool isCompleted, int moneyEarned)
@@ -118,5 +128,45 @@ public class GameManager : MonoBehaviour
     public void RemoveCoins(int amount)
     {
         coins -= amount;
+    }
+
+    public void AddFeature(string feature)
+    {
+        if (feature == "hourglass")
+        {
+            features.hourglass++;
+        }
+        else if (feature == "snack")
+        {
+            features.snack++;
+        }
+        else if (feature == "x2")
+        {
+            features.x2++;
+        }
+        else if (feature == "ball")
+        {
+            features.ball++;
+        }
+    }
+
+    public void RemoveFeature(string feature)
+    {
+        if (feature == "hourglass")
+        {
+            features.hourglass--;
+        }
+        else if (feature == "snack")
+        {
+            features.snack--;
+        }
+        else if (feature == "x2")
+        {
+            features.x2--;
+        }
+        else if (feature == "ball")
+        {
+            features.ball--;
+        }
     }
 }
