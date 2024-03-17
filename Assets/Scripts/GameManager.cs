@@ -15,22 +15,14 @@ public class Level
     public int time;
 }
 
-[System.Serializable]
-public class RoomScene
-{
-    public bool isOpen = false;
-    public string sceneName;
-    public bool isCatThere = false;
-    public int opensAtLevel = 0;
-}
 
 [System.Serializable]
 public class Features
 {
-    public int hourglass = 4;
-    public int snack = 1;
-    public int x2 = 3;
-    public int ball = 9;
+    public int hourglass = 0;
+    public int snack = 0;
+    public int x2 = 0;
+    public int ball = 0;
 }
 
 public class GameManager : MonoBehaviour
@@ -39,7 +31,6 @@ public class GameManager : MonoBehaviour
     private const int levelsCount = 30;
     private const int roomsCount = 8;
     public Level[] levels = new Level[levelsCount];
-    public RoomScene[] roomScenes = new RoomScene[roomsCount];
     public int coins = 0;
     public Level currentLevel = null;
     public Features features = new Features();
@@ -54,11 +45,6 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
 
             string[] roomNames = { "EntryRoom", "Bathroom", "Backyard", "Bedroom", "Kitchen", "LaundryRoom", "LivingRoom", "OfficeRoom" };
-            for (int i = 0; i < roomsCount; i++)
-            {
-                roomScenes[i].sceneName = roomNames[i];
-                roomScenes[i].opensAtLevel = i == 0 ? 0 : (levelsCount / roomsCount) * i - 1;
-            }
 
             for (int i = 0; i < levelsCount; i++)
             {
@@ -67,9 +53,10 @@ public class GameManager : MonoBehaviour
                 levels[i].rooms = new String[levelRoomsCount];
                 for (int j = 0; j < roomsCount; j++)
                 {
-                    if (roomScenes[j].opensAtLevel <= i)
+                    int roomOpensAt = j == 0 ? 0 : (levelsCount / roomsCount) * j - 1;
+                    if (roomOpensAt <= i)
                     {
-                        levels[i].rooms[j] = roomScenes[j].sceneName;
+                        levels[i].rooms[j] = roomNames[j];
                     }
                 }
                 levels[i].time = timePerRoom * levels[i].rooms.Length;

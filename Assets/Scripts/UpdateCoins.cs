@@ -35,7 +35,6 @@ public class UpdateCoins : MonoBehaviour
 
     void UpdateTimerText()
     {
-
         // This will find the TextMeshPro component among the children of time_visual
         TextMeshPro text = GetComponentInChildren<TextMeshPro>();
 
