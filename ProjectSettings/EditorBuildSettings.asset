@@ -23,7 +23,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/info4.unity
     guid: 85f8f06dbade4a34f9472bc481cc46eb
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/lose.unity
     guid: 84aa1c935c0e0bf448939a0d339b5f9e
   - enabled: 1

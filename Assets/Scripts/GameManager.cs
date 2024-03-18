@@ -81,8 +81,11 @@ public class GameManager : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        currentLevel = levels[currentLevel.id + 1];
-        SceneManager.LoadScene("Level");
+        if (currentLevel.id != 29)
+        {
+            currentLevel = levels[currentLevel.id + 1];
+            SceneManager.LoadScene("Level");
+        }
     }
 
     public void LoadLevelsMenu()

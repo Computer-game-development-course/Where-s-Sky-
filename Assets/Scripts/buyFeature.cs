@@ -34,7 +34,7 @@ public class buyFeature : MonoBehaviour
                 StartCoroutine(AnimateAndChangeScene());
 
                 int money = GameManager.Instance.GetTotalCoins();
-                if (money > cost)
+                if (money >= cost)
                 {
                     GameManager.Instance.RemoveCoins(cost);
                     GameManager.Instance.AddFeature(featureName);

@@ -92,6 +92,10 @@ public class LevelManager : MonoBehaviour
         mapCollider = MapButton.GetComponent<BoxCollider2D>();
 
         MapButton.SetActive(level.rooms.Length > 1);
+        if (level.rooms.Length > 1)
+        {
+            StartCoroutine(ActivateMapIndicator());
+        }
 
         Cat.SetActive(currentRoomKey == catRoomKey);
 
@@ -242,6 +246,34 @@ public class LevelManager : MonoBehaviour
                     }
                 }
             }
+        }
+    }
+
+    IEnumerator ActivateMapIndicator()
+    {
+        // Find the child GameObject. Replace "MapIndicator" with the actual name of your child GameObject.
+        Transform mapIndicator = MapButton.transform.Find("red");
+
+        if (mapIndicator != null)
+        {
+
+            int count = 10;
+            while (count > 0)
+            {
+                // Activate the child GameObject
+                mapIndicator.gameObject.SetActive(true);
+
+                yield return new WaitForSeconds(0.1f);
+
+                // Deactivate the child GameObject
+                mapIndicator.gameObject.SetActive(false);
+
+                // Wait for a second
+                yield return new WaitForSeconds(0.1f);
+
+                count--;
+            }
+
         }
     }
 

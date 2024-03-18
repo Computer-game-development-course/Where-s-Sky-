@@ -26,7 +26,7 @@ public class InfoSteps : MonoBehaviour
                         gameSteps[i].gameObject.SetActive(false);
                         if (i < gameSteps.Length - 1)
                         {
-                            Invoke(nameof(LoadNextStep), 0.4f);
+                            Invoke(nameof(LoadNextStep), 0.2f);
                         }
                     }
                 }
