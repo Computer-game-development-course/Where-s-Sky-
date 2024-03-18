@@ -25,7 +25,7 @@ The cat can hide in different places, the difficulty will progress according to 
 
 ## Support
 
-For any assistance or to report bugs, please contact our support team at "alinush0zahozi@gmail.com"
+For any assistance or to report bugs, please contact our support team at "alinush0zahozi@gmail.com".
 
 ## The official components of the game
 
